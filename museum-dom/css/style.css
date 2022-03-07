@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Forum';
   src: url("../fonts/Forum.woff2") format("woff2"), url("../fonts/Forum.woff") format("woff"), url("../fonts/Forum.ttf") format("truetype");
@@ -3214,6 +3215,40 @@ button {
   transition: .3s ease-in-out;
 }
 
+.--input {
+  padding-left: 45px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 45px;
+  outline: none;
+  border: 1px solid #030303;
+  position: relative;
+}
+
+.--input::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/logo.svg") no-repeat center;
+  mask: url("../assets/icons/logo.svg") no-repeat center;
+  -webkit-mask-size: 20px;
+  mask-size: 20px;
+  background-color: #000;
+  z-index: 2;
+}
+
+/* Использовать отдельные блоки и позиционирование для размещения иконок в инпутах */
 .booking {
   position: fixed;
   top: 50%;
@@ -3337,6 +3372,7 @@ button {
   font-size: 50px;
   font-weight: 400;
   line-height: 55px;
+  letter-spacing: 0;
   color: #9d8665;
 }
 
@@ -3351,6 +3387,25 @@ button {
   font-weight: 400;
   line-height: 21px;
   color: #710707;
+}
+
+.booking__date-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.booking__date {
+  margin-right: 20px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(50% - 10px);
+          flex: 0 1 calc(50% - 10px);
+}
+
+.booking__time {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(50% - 10px);
+          flex: 0 1 calc(50% - 10px);
 }
 
 .booking__right {

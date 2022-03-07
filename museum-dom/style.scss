@@ -5,7 +5,7 @@
 
 $bg-dark: #030303;
 $dark-red: #710707;
-$font-gold: #9d8665;
+$font-gold: #9d8665; 
 
 // mixins
 
@@ -2044,6 +2044,25 @@ button {
     transition: .3s ease-in-out;
 }
 
+.--input {
+    padding-left: 45px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    outline: none;
+    border: 1px solid $bg-dark;
+
+    position: relative;
+    &::after {
+        @include svgMaskPseudo(20px, 20px, '../assets/icons/logo.svg', 20px, #000);
+        z-index: 2;
+    }
+}
+
+/* Использовать отдельные блоки и позиционирование для размещения иконок в инпутах */
+
 .booking {
     position: fixed;
     top: 50%;
@@ -2127,7 +2146,7 @@ button {
 
     &__title {
         margin-bottom: 15px;
-        @include font('Forum', 50px, 400, 55px, null);
+        @include font('Forum', 50px, 400, 55px, 0);
         color: $font-gold;
         &:after {
             top: 100px;
@@ -2139,6 +2158,54 @@ button {
         @include font('Roboto', 18px, 400, 21px, null);
         color: $dark-red;
     }
+
+    &__date-row {
+        display: flex;
+    }
+
+    &__date {
+        margin-right: 20px;
+        flex: 0 1 calc(50% - 10px);
+    }
+
+    &__time {
+        flex: 0 1 calc(50% - 10px);
+    }
+
+    &__name {
+    }
+
+    &__mail {
+    }
+
+    &__phone {
+    }
+
+    &__select {
+    }
+
+    &__entry-ticket {
+    }
+
+    &__entry-ticket-title {
+    }
+
+    &__entry-basic {
+    }
+
+    &__entry-senior {
+    }
+
+.--title {
+}
+.--red-line {
+}
+.red-line {
+}
+.ticket-counter {
+}
+
+
     &__right {
         flex: 0 1 530px;
         padding: 25px 30px;
