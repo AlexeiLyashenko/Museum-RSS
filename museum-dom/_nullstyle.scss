@@ -1,0 +1,47 @@
+* {
+	box-sizing: border-box;
+ 
+	&::before, &::after {
+	  box-sizing: border-box;
+	}
+ }
+ 
+ body, h1, h2, h3, h4, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+	margin: 0;
+ }
+ 
+ body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+ }
+ 
+ ul, ol {
+	padding: 0;
+	list-style: none;
+ }
+ 
+ a, img {
+	display: block;
+ }
+ a {
+	 text-decoration: none;
+ }
+ 
+ img {
+	max-width: 100%;
+ }
+ 
+ input {
+	&::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration {
+	  display: none;
+	}
+ 
+	font: inherit;
+
+	border-radius: 0;
+ }
+ 
+ button, textarea, select {
+	font: inherit;
+ }
