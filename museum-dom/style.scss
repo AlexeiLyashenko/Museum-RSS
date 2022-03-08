@@ -2044,23 +2044,39 @@ button {
     transition: .3s ease-in-out;
 }
 
-.--input {
-    padding-left: 45px;
+.--input-block {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 45px;
-    outline: none;
     border: 1px solid $bg-dark;
-
-    position: relative;
-    &::after {
-        @include svgMaskPseudo(20px, 20px, '../assets/icons/logo.svg', 20px, #000);
-        z-index: 2;
-    }
 }
 
+.--input {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    @include font('Roboto', 18px, 400, 21px, null);
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+}
+.--input-label {
+    width: 45px;
+    height: 100%;
+}
+.--input-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 /* Использовать отдельные блоки и позиционирование для размещения иконок в инпутах */
 
 .booking {
@@ -2164,47 +2180,174 @@ button {
     }
 
     &__date {
+        padding-left: 43px;
+        margin-bottom: 20px;
+        height: 45px;
+        border: 1px solid $bg-dark;
+        outline: none;
         margin-right: 20px;
         flex: 0 1 calc(50% - 10px);
+        @include font('Roboto', 18px, 400, 21px, null);
     }
 
     &__time {
+        padding-left: 43px;
+        height: 45px;
+        border: 1px solid $bg-dark;
+        outline: none;
         flex: 0 1 calc(50% - 10px);
+        @include font('Roboto', 18px, 400, 21px, null);
     }
 
+
+// inputs type text
     &__name {
+    }
+
+    &__name-label {
+        &::after {
+            @include svgMaskPseudo(16px, 18px, '../assets/icons/name.svg', 15px, $bg-dark);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__name-input {
     }
 
     &__mail {
     }
 
+    &__mail-label {
+        &::after {
+            @include svgMaskPseudo(22px, 16px, '../assets/icons/email.svg', 15px, $bg-dark);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__mail-input {
+    }
+
     &__phone {
     }
 
+    &__phone-label {
+        &::after {
+            @include svgMaskPseudo(16px, 28px, '../assets/icons/tel.svg', 14px, $bg-dark);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__phone-input {
+    }
+
+    &__select-block {
+        margin-bottom: 20px;
+        display: flex;
+        width: 100%;
+        height: 45px;
+        border: 1px solid $bg-dark;
+    }
+
     &__select {
+        // padding-left: 45px;
+        // position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        // border: 1px solid $bg-dark;
+        border: none;
+        outline: none;
+        &::after {
+            @include svgMaskPseudo(16px, 28px, '../assets/icons/ballot.svg', 14px, $bg-dark);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        & option {
+            @include font('Roboto', 18px, 400, 21px, null);
+        }
+    }
+    &__select-label {
+        position: relative;
+        display: flex;
+        width: 45px;
+        height: 45px;
+        &::after {
+            @include svgMaskPseudo(16px, 16px, '../assets/icons/ballot.svg', 15px, $bg-dark);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 
     &__entry-ticket {
+        padding: 10px 15px 15px 15px;
+        border: 1px solid $bg-dark;
     }
 
     &__entry-ticket-title {
+        margin-bottom: 5px;
+        @include font('Forum', 18px, 400, 21px, null);
+        color: $font-gold;
+    }
+    &__entry-red-line.--red-line {
+        margin-bottom: 15px;
+        &::after {
+            height: 2px;
+            bottom: 0;
+        }
     }
 
     &__entry-basic {
+        margin-bottom: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & p {
+            display: block;
+            flex: 0 1 50%;
+            @include font('Roboto', 18px, 400, 21px, null);
+        }
     }
 
     &__entry-senior {
+        & p {
+            display: block;
+            flex: 0 1 50%;
+            @include font('Roboto', 18px, 400, 21px, null);
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-.--title {
-}
-.--red-line {
-}
-.red-line {
-}
-.ticket-counter {
-}
-
+    &__ticket-counter {
+        display: flex;
+        & input {
+            width: 35px;
+            height: 25px;
+            border: 1px solid $bg-dark !important;
+            outline: none;
+            border: none;
+            text-align: center;
+            @include font('Roboto', 18px, 700, 21px, null);
+        }
+        & button {
+            width: 35px;
+            height: 25px;
+            background-color: $bg-dark;
+            outline: none;
+            border: none;
+            color: #ffffff;
+            @include font('Roboto', 20px, 400, 21px, null);
+        }
+    }
 
     &__right {
         flex: 0 1 530px;
@@ -2232,6 +2375,7 @@ button {
 
     &__right-date {
         display: flex;
+        align-items: center;
     }
 
     &__right-date-icon {
@@ -2251,6 +2395,7 @@ button {
 
     &__right-time {
         display: flex;
+        align-items: center;
     }
 
     &__right-time-icon {
@@ -2271,10 +2416,11 @@ button {
     &__right-status {
         margin-bottom: 25px;
         display: flex;
+        align-items: center;
     }
 
     &__right-status-icon {
-        margin: 0px 15px 5px 0px;
+        margin: 0px 15px 0px 0px;
         position: relative;
         display: flex;
         width: 15px;

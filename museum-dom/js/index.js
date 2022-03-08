@@ -382,10 +382,13 @@ function downTicketsCount(target) {
 function calculatePrice() {
   ticketTypes.forEach(radio => {
     if(radio.checked) {
-      priceOut.innerText = (radio.value * basicQuantity.value) + ((radio.value / 2) * seniorQuantity.value)
+      let totalPrice = (radio.value * basicQuantity.value) + ((radio.value / 2) * seniorQuantity.value)
+      priceOut.innerText = totalPrice
+      popUpTotalPrice.textContent = totalPrice
       localStorage.setItem('ticketType', radio.id)
       localStorage.setItem('basicQuantity', basicQuantity.value)
       localStorage.setItem('seniorQuantity', seniorQuantity.value)
+      ticketTypeRightStatus.textContent = radio.dataset.name;
     }
   })
 }
@@ -397,8 +400,10 @@ const radios = document.querySelectorAll('.tickets__type input[type="radio"]'),
       basicQuantity = document.querySelector('input[name="basic-quantity"]'),
       seniorQuantity = document.querySelector('input[name="senior-quantity"]'),
       priceOut = document.querySelector('.tickets__total>span'),
-      ticketTypes = document.querySelectorAll('.tickets__type input[type="radio"]');
-
+      ticketTypes = document.querySelectorAll('.tickets__type input[type="radio"]'),
+      popUpTotalPrice = document.querySelector('.booking__right-total-price span'),
+      ticketTypeRightStatus = document.querySelector('.booking__right-status-text'),
+      ticketTypePopUpSelect = document.querySelector('.booking__select');
 
 // load info from localStorage
 radios.forEach(radio => {
@@ -415,25 +420,64 @@ calculatePrice()
 
 
 // tickets quantity
+
+const basicAmount = document.querySelector('.booking__basic-amount'),
+      seniorAmount = document.querySelector('.booking__senior-amount'),
+      basicAmountMinus = document.querySelector('.booking__basic-minus'),
+      basicAmountPlus = document.querySelector('.booking__basic-plus'),
+      seniorAmountMinus = document.querySelector('.booking__senior-minus'),
+      seniorAmountPlus = document.querySelector('.booking__senior-plus'),
+      basicAmountRight = document.querySelector('.booking__right-basic-amount'),
+      seniorAmountRight = document.querySelector('.booking__right-senior-amount');
+
 upBtn.forEach(btn => {
   btn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (e.target.parentElement.classList.contains('tickets__basic-quantity')) {
       upTicketsCount(basicQuantity)
       calculatePrice()
     } else if (e.target.parentElement.classList.contains('tickets__senior-quantity')) {
       upTicketsCount(seniorQuantity)
       calculatePrice()
+    } else if (e.target.parentElement.classList.contains('basic')) {
+      upTicketsCount(basicAmount)
+      upTicketsCount(basicQuantity)
+      ++basicAmountRight.textContent;
+      calculatePrice()
+      console.log('plus basic');
+      console.log(basicAmountRight.textContent);
+    } else if (e.target.parentElement.classList.contains('senior')) {
+      upTicketsCount(seniorAmount)
+      upTicketsCount(seniorQuantity)
+      ++seniorAmountRight.textContent;
+      calculatePrice()
+      console.log('plus senior');
     }
   })
 })
 
 downBtn.forEach(btn => {
   btn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (e.target.parentElement.classList.contains('tickets__basic-quantity')) {
       downTicketsCount(basicQuantity)
       calculatePrice()
     } else if (e.target.parentElement.classList.contains('tickets__senior-quantity')) {
       downTicketsCount(seniorQuantity)
+      calculatePrice()
+    } else if (e.target.parentElement.classList.contains('basic')) {
+      downTicketsCount(basicAmount)
+      downTicketsCount(basicQuantity)
+      if(basicAmountRight.textContent > 0) {
+        --basicAmountRight.textContent;
+      }
+      calculatePrice()
+    } else if (e.target.parentElement.classList.contains('senior')) {
+      downTicketsCount(seniorAmount)
+      downTicketsCount(seniorQuantity)
+      if(seniorAmountRight.textContent > 0) {
+        --seniorAmountRight.textContent;
+      }
       calculatePrice()
     }
   })
@@ -441,7 +485,13 @@ downBtn.forEach(btn => {
 
 ticketTypes.forEach(radio => {
   radio.addEventListener('change', calculatePrice)
-}) 
+})
+
+// Ticket type popup select
+
+ticketTypePopUpSelect.addEventListener('change', (e) => {
+  console.log(e.target.value);
+})
 
 // Buy Tickets
 
@@ -453,6 +503,16 @@ const buyBtn = document.querySelector('.tickets__buy-now'),
 buyBtn.addEventListener('click', () => {
   booking.classList.toggle('visible-booking')
   overlay.classList.toggle('visible')
+
+  basicAmount.value = +localStorage.getItem('basicQuantity');
+  basicAmountRight.textContent = +localStorage.getItem('basicQuantity');
+  seniorAmount.value = +localStorage.getItem('seniorQuantity');
+  seniorAmountRight.textContent = +localStorage.getItem('seniorQuantity');
+  calculatePrice()
+
+  // ticketTypeRightStatus.textContent = localStorage.getItem('ticketType');
+  console.log(localStorage.getItem('ticketType'));
+  // popUpTotalPrice.textContent = 
 })
 overlay.addEventListener('click', () => {
   removeClass(booking, 'visible-booking')
@@ -464,133 +524,6 @@ closeBooking.addEventListener('click', () => {
   removeClass(overlay, 'visible')
 })
 
-window.addEventListener('DOMContentLoaded', () => {
-  console.log(
-    `Ваша оценка - 103 балла 
-    Отзыв по пунктам ТЗ:
-    Не выполненные/не засчитанные пункты:
-    1) если внутри слайда проигрывается видео с YouTube, клик по стрелке перелистывания слайдов или клик по буллету останавливает проигрывание видео 
-    
-    2) ползунок можно перетягивать мышкой по горизонтали 
-    
-    3) ползунок никогда не выходит за границы картины 
-    
-    4) при перемещении ползунка справа налево плавно появляется нижняя картина 
-    
-    5) при перемещении ползунка слева направо плавно появляется верхняя картина 
-    
-    6) при обновлении страницы ползунок возвращается в исходное положение 
-    
-    7) когда при клике по кнопке Buy now открывается форма, она уже содержит данные, указанные на странице сайта - количество билетов, их тип, общая цена за них 
-    
-    8) когда пользователь выбирает дату в форме слева, она отображается в билете справа 
-    
-    9) нельзя выбрать дату в прошлом 
-    
-    10) когда пользователь выбирает время в форме слева, оно отображается в билете справа 
-    
-    11) время можно выбирать с 9:00 до 18:00 с интервалом в 30 минут 
-    
-    12) можно изменить тип билета в поле Ticket type слева при этом меняется тип билета, цена билета и общая стоимость билетов справа 
-    
-    13) можно изменить количество билетов каждого типа в поле слева при этом меняется количество билетов и общая стоимость билетов справа 
-    
-    14) валидация имени пользователя. Имя пользователя должно содержать от 3 до 15 символов, в качестве символов могут быть использованы буквы английского или русского алфавита в нижнем или верхнем регистре и пробелы 
-    
-    15) валидация e-mail должна пропукать только адреса вида username@example.com, где: username - имя пользователя, должно содержать от 3 до 15 символов (буквы, цифры, знак подчёркивания, дефис), не должно содержать пробелов; @ - символ собачки; example - домен первого уровня состоит минимум из 4 латинских букв; com - домен верхнего уровня, отделяется от домена первого уровня точкой и состоит минимум из 2 латинских букв 
-    
-    16) валидация номера телефона: номер содержит только цифры; без разделения или с разделением на две или три цифры; разделение цифр может быть через дефис или пробел; с ограничением по количеству цифр не больше 10 цифр 
-    
-    17) при попытке ввода в форму невалидного значения выводится предупреждение, например, "номер телефона может содержать только цифры" 
-    
-    18) на карте отображаются маркеры, расположение и внешний вид маркеров соответствует макету 
-    
-    19) Любой собственный дополнительный функционал, улучшающий качество проекта. Например, ночная тема, плавная смена изображений в блоке Tickets, всплывающее окно с информацией про картины и их авторов, кнопка прокрутки страницы вверх, возможность проголосовать за понравившиеся картины с сохранением данных в local storage, всё зависит от вашей фантазии и чувства вкуса. Для удобства проверки выполненный вами дополнительный функционал включите в самооценку, которую выведите в консоль браузера 
-    
-    Частично выполненные пункты:
-    1) если видео с YouTube проигрывается, клик по кнопке Pause останавливает его проигрывание. Также проигрывание видео останавливается, если кликнуть по другому слайду или кнопке Play в центре другого слайда. В указанной ситуации другое видео должно запуститься, а текущее остановиться. Невозможно проигрывание нескольких YouTube видео одновременно 
-    
-    Выполненные пункты:
-    1) есть возможность перелистывания слайдов влево и вправо кликами по стрелкам 
-    
-    2) есть возможность перелистывания слайдов влево и вправо свайпами (движениями) мышки 
-    
-    3) есть возможность перелистывания слайдов кликами по буллетам (квадратики внизу слайдера) 
-    
-    4) слайды перелистываются плавно с анимацией смещения вправо или влево 
-    
-    5) перелистывание слайдов бесконечное (зацикленное) 
-    
-    6) при перелистывании слайдов буллет активного слайда подсвечивается (выделяется стилем) 
-    
-    7) при перелистывании слайдов кликами или свайпами меняется номер активного слайда 
-    
-    8) даже при частых кликах или свайпах нет ситуации, когда слайд после перелистывания находится не по центру, нет ситуации, когда видны одновременно два слайда 
-    
-    9) при клике по самому слайду или кнопке Play в центре слайда, внутри слайда проигрывается видео с YouTube. Никакие изменения с основным видео при этом не происходят 
-    
-    10) есть возможность перелистывания слайдов с видео влево и вправо кликами по стрелкам. Слайды перелистываются по одному, при этом также меняется основное видео 
-    
-    11) есть возможность перелистывания слайдов кликами по буллетам (кружочки внизу слайдера), при этом также меняется основное видео 
-    
-    12) слайды перелистываются плавно с анимацией смещения вправо или влево (для смены основного видео анимация смещения не требуется и не проверяется) 
-    
-    13) перелистывание слайдов бесконечное (зацикленное) 
-    
-    14) при перелистывании слайдов буллет активного слайда подсвечивается (выделяется стилем) 
-    
-    15) если основное видео проигрывалось при перелистывании слайдера, проигрывание видео останавливается, прогресс бар сдвигается к началу, иконки "Play" на панели управления и по центру видео меняются на первоначальные 
-    
-    16) даже при частых кликах по стрелкам нет ситуации, когда слайд после перелистывания находится не по центру, нет ситуации, когда видны одновременно два слайда 
-    
-    17) при клике по кнопке "Play" слева внизу на панели видео начинается проигрывание видео, иконка кнопки при этом меняется на "Pause", большая кнопка "Play" по центру видео исчезает. Повторный клик на кнопку останавливает проигрывание видео, иконка меняется на первоначальную, большая кнопка "Play" по центру видео снова отображается 
-    
-    18) при клике по большой кнопке "Play" по центру видео, или при клике по самому видео, начинается проигрывание видео, иконка кнопки "Play" слева внизу на панели видео меняется на "Pause", большая кнопка "Play" по центру видео исчезает. Клик на видео, которое проигрывается, останавливает проигрывание видео, иконка кнопки "Play" слева внизу на панели видео меняется на первоначальную, большая кнопка "Play" по центру видео снова отображается 
-    
-    19) прогресс-бар отображает прогресс проигрывания видео 
-    
-    20) перетягивание ползунка прогресс-бара позволяет изменить время с которого проигрывается видео 
-    
-    21) если прогресс-бар перетянуть до конца, видео останавливается, соответственно, меняется внешний вид кнопок "Play" 
-    
-    22) при клике на иконку динамика происходит toggle звука и самой иконки (звук включается или выключается, соответственно изменяется иконка) 
-    
-    23) при перемещении ползунка громкости звука изменяется громкость видео 
-    
-    24) если ползунок громкости звука перетянуть до 0, звук выключается, иконка динамика становится зачеркнутой 
-    
-    25) если при выключенном динамике перетянуть ползунок громкости звука от 0, звук включается, иконка громкости перестаёт быть зачёркнутой 
-    
-    26) при нажатии на кнопку fullscreen видео переходит в полноэкранный режим, при этом видео и панель управления разворачиваются во весь экран. При нажатии на кнопку fullscreen повторно видео выходит из полноэкранного режима. Нажатие на клавишу для выхода из полноэкранного режима Esc не проверяем и не оцениваем 
-    
-    27) панель управления в полноэкранном режиме визуально выглядит так же, как на макете - кнопки равномерно распределены по всей ширине страницы, относительные размеры между кнопками и ползунками, а также относительные размеры самих кнопок остались прежними 
-    
-    28) клавиша Пробел — пауза, при повторном нажатии - play 
-    
-    29) Клавиша M (англ) — отключение/включение звука 
-    
-    30) Клавиша F — включение/выключение полноэкранного режима 
-    
-    31) Клавиши SHIFT+, (англ) — ускорение воспроизведения ролика 
-    
-    32) Клавиши SHIFT+. (англ) — замедление воспроизведения ролика 
-    
-    33) при прокрутке страницы вниз появление картин секции Galery сопровождается анимацией: изображения плавно поднимаются снизу вверх, увеличиваясь и создавая эффект выплывания. В качестве образца анимации используйте анимацию на сайте Лувра https://www.louvre.fr/ 
-    
-    34) если прокрутить страницу вверх и затем снова прокручивать вниз, анимация появления картин повторяется 
-    
-    35) при обновлении страницы, если она к тому моменту была прокручена до секции Galery, анимация картин повторяется 
-    
-    36) при изменении количества билетов Basic и Senior пересчитывается общая цена за них 
-    
-    37) у каждого типа билетов своя цена (20 €, 25 €, 40 € для Basic и половина этой стоимости для Senior). При изменении типа билета пересчитывается общая цена за них 
-    
-    38) при обновлении страницы сохраняется выбранное ранее количество билетов Basic и Senior, выбранный тип билета, общая цена за них 
-    
-    39) в секции Contacts добавлена интерактивная карта 
-    
-    40) стиль карты соответствует макету 
-    
-    `
-  );
-})
+
+// Booking
+

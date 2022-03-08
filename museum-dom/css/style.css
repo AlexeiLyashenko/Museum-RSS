@@ -3215,8 +3215,7 @@ button {
   transition: .3s ease-in-out;
 }
 
-.--input {
-  padding-left: 45px;
+.--input-block {
   margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3228,24 +3227,41 @@ button {
       -ms-flex-align: center;
           align-items: center;
   height: 45px;
-  outline: none;
   border: 1px solid #030303;
-  position: relative;
 }
 
-.--input::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 0;
-  left: 0;
-  -webkit-mask: url("../assets/icons/logo.svg") no-repeat center;
-  mask: url("../assets/icons/logo.svg") no-repeat center;
-  -webkit-mask-size: 20px;
-  mask-size: 20px;
-  background-color: #000;
-  z-index: 2;
+.--input {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.--input:-webkit-autofill, .--input:-webkit-autofill:hover, .--input:-webkit-autofill:focus, .--input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.--input-label {
+  width: 45px;
+  height: 100%;
+}
+
+.--input-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
 }
 
 /* Использовать отдельные блоки и позиционирование для размещения иконок в инпутах */
@@ -3396,16 +3412,259 @@ button {
 }
 
 .booking__date {
+  padding-left: 43px;
+  margin-bottom: 20px;
+  height: 45px;
+  border: 1px solid #030303;
+  outline: none;
   margin-right: 20px;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 calc(50% - 10px);
           flex: 0 1 calc(50% - 10px);
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
 }
 
 .booking__time {
+  padding-left: 43px;
+  height: 45px;
+  border: 1px solid #030303;
+  outline: none;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 calc(50% - 10px);
           flex: 0 1 calc(50% - 10px);
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.booking__name-label::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/name.svg") no-repeat center;
+  mask: url("../assets/icons/name.svg") no-repeat center;
+  -webkit-mask-size: 15px;
+  mask-size: 15px;
+  background-color: #030303;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.booking__mail-label::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/email.svg") no-repeat center;
+  mask: url("../assets/icons/email.svg") no-repeat center;
+  -webkit-mask-size: 15px;
+  mask-size: 15px;
+  background-color: #030303;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.booking__phone-label::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 28px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/tel.svg") no-repeat center;
+  mask: url("../assets/icons/tel.svg") no-repeat center;
+  -webkit-mask-size: 14px;
+  mask-size: 14px;
+  background-color: #030303;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.booking__select-block {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 45px;
+  border: 1px solid #030303;
+}
+
+.booking__select {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+.booking__select::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 28px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/ballot.svg") no-repeat center;
+  mask: url("../assets/icons/ballot.svg") no-repeat center;
+  -webkit-mask-size: 14px;
+  mask-size: 14px;
+  background-color: #030303;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.booking__select option {
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.booking__select-label {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 45px;
+  height: 45px;
+}
+
+.booking__select-label::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/ballot.svg") no-repeat center;
+  mask: url("../assets/icons/ballot.svg") no-repeat center;
+  -webkit-mask-size: 15px;
+  mask-size: 15px;
+  background-color: #030303;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.booking__entry-ticket {
+  padding: 10px 15px 15px 15px;
+  border: 1px solid #030303;
+}
+
+.booking__entry-ticket-title {
+  margin-bottom: 5px;
+  font-family: "Forum";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #9d8665;
+}
+
+.booking__entry-red-line.--red-line {
+  margin-bottom: 15px;
+}
+
+.booking__entry-red-line.--red-line::after {
+  height: 2px;
+  bottom: 0;
+}
+
+.booking__entry-basic {
+  margin-bottom: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.booking__entry-basic p {
+  display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.booking__entry-senior {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.booking__entry-senior p {
+  display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.booking__ticket-counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.booking__ticket-counter input {
+  width: 35px;
+  height: 25px;
+  border: 1px solid #030303 !important;
+  outline: none;
+  border: none;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.booking__ticket-counter button {
+  width: 35px;
+  height: 25px;
+  background-color: #030303;
+  outline: none;
+  border: none;
+  color: #ffffff;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 21px;
 }
 
 .booking__right {
@@ -3445,6 +3704,9 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .booking__right-date-icon {
@@ -3482,6 +3744,9 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .booking__right-time-icon {
@@ -3520,10 +3785,13 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .booking__right-status-icon {
-  margin: 0px 15px 5px 0px;
+  margin: 0px 15px 0px 0px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;

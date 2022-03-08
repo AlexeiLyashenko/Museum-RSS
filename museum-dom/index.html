@@ -283,14 +283,14 @@
                             <div class="tickets__type">
                                 <h4>Ticket Type</h4>
                                 <div class="tickets__type-item">
-                                    <input id="tt1" type="radio" name="tt" value="20">
+                                    <input id="tt1" type="radio" name="tt" data-name="Permanent exhibition" value="20">
                                     <label for="tt1">Permanent exhibition</label> 
                                 </div>
                                 <div class="tickets__type-item">
-                                    <input id="tt2" type="radio" name="tt" value="25">
+                                    <input id="tt2" type="radio" name="tt" data-name="Temporary exhibition" value="25">
                                 <label for="tt2">Temporary exhibition</label>
                                 </div><div class="tickets__type-item">
-                                    <input id="tt3" type="radio" name="tt" value="40">
+                                    <input id="tt3" type="radio" name="tt" data-name="Combined Admission" value="40">
                                 <label for="tt3">Combined Admission</label> 
                                 </div>
                             </div>
@@ -343,37 +343,53 @@
                 <div class="booking__content">
                     <div class="booking__container">
                         <div class="booking__row">
-                            <form action="1">
+                            <form action="1" lang="en">
                                 <div class="booking__left">
                                     <div class="booking__icon"></div>
                                     <h3 class="booking__title --title --red-line">Booking tickets</h3>
                                     <div class="booking__subtitle">Tour to Louvre</div>
                                     <div class="booking__date-row">
-                                        <input type="date" class="booking__date --input">
-                                        <input type="time" class="booking__time --input">
+                                        <input type="date" class="booking__date" placeholder="dd/mm/yy">
+                                        <input type="time" class="booking__time" placeholder="Time">
                                     </div>
-                                    <input type="text" class="booking__name --input" placeholder="Name">
-                                    <input type="text" class="booking__mail --input" placeholder="E-mail">
-                                    <input type="text" class="booking__phone --input" placeholder="Phone">
-                                    <div class="booking__select">
-                            
+                                    <div class="booking__name --input-block">
+                                        <label for="booking__name-input" class="booking__name-label --input-label"></label>
+                                        <input type="text" class="booking__name-input --input" id="booking__name-input" placeholder="Name">
+                                    </div>
+                                    <div class="booking__mail --input-block">
+                                        <label for="booking__mail-input" class="booking__mail-label --input-label"></label>
+                                        <input type="email" class="booking__mail-input --input" id="booking__mail-input" placeholder="Email">
+                                    </div>
+                                    <div class="booking__phone --input-block">
+                                        <label for="booking__phone-input" class="booking__phone-label --input-label"></label>
+                                        <input type="tel" class="booking__phone-input --input" id="booking__phone-input" placeholder="Phone number">
+                                    </div>
+                                    <div class="booking__select-block">
+                                        <label class="booking__select-label" for="booking__ticket-type"></label>
+                                        <select class="booking__select" name="Ticket type" id="booking__ticket-type">
+                                            <option value="" disabled selected hidden>Ticket type</option>
+                                            <option value="1">Permanent exhibition</option>
+                                            <option value="2">Temporary exhibition</option>
+                                            <option value="3">Combined Admission</option>
+                                        </select>
                                     </div>
                                     <div class="booking__entry-ticket">
                                         <div class="booking__entry-ticket-title red-line">Entry ticket</div>
+                                        <div class="booking__entry-red-line --red-line"></div>
                                         <div class="booking__entry-basic">
                                             <p>Basic 18+ (20 €)</p>
-                                            <div class="ticket-counter">
-                                                <button>-</button>
-                                                <input type="text">
-                                                <button>+</button>
+                                            <div class="booking__ticket-counter basic">
+                                                <button class="booking__basic-minus down">-</button>
+                                                <input class="booking__basic-amount" type="text" value="0" readonly="readonly">
+                                                <button class="booking__basic-plus up">+</button>
                                             </div>
                                         </div>
                                         <div class="booking__entry-senior">
                                             <p>Senior 65+ (10 €)</p>
-                                            <div class="ticket-counter">
-                                                <button>-</button>
-                                                <input type="text">
-                                                <button>+</button>
+                                            <div class="booking__ticket-counter senior">
+                                                <button class="booking__senior-minus down">-</button>
+                                                <input class="booking__senior-amount" type="text" value="0" readonly="readonly">
+                                                <button class="booking__senior-plus up">+</button>
                                             </div>
                                         </div>
                                     </div>
@@ -414,7 +430,7 @@
                                         <div class="booking__right-line --red-line"></div>
                                         <div class="booking__right-total">
                                             <div class="booking__right-total-text">Total:</div>
-                                            <div class="booking__right-total-price">60 €</div>
+                                            <div class="booking__right-total-price"><span>60</span> €</div>
                                         </div>
                                     </div>
                                 </div>
@@ -468,6 +484,7 @@
 <script src="./js/index.js"></script>
 <script src="./js/gallery.js"></script>
 <script src="./js/mapbox.js" defer></script>
+<script src="./js/booking.js"></script>
 
 
 </body>
