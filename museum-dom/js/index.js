@@ -390,7 +390,13 @@ function calculatePrice() {
       localStorage.setItem('seniorQuantity', seniorQuantity.value)
       ticketTypeRightStatus.textContent = radio.dataset.name;
     }
+    calculateTypePrice(popUpBasicTotalPrice, basicAmountRight.textContent, 20)
+    calculateTypePrice(popUpSeniorTotalPrice, seniorAmountRight.textContent, 10)
   })
+}
+
+function calculateTypePrice(target, count, ticketTypePrice) {
+  target.textContent = +count * ticketTypePrice;
 }
 
 const radios = document.querySelectorAll('.tickets__type input[type="radio"]'),
@@ -403,7 +409,11 @@ const radios = document.querySelectorAll('.tickets__type input[type="radio"]'),
       ticketTypes = document.querySelectorAll('.tickets__type input[type="radio"]'),
       popUpTotalPrice = document.querySelector('.booking__right-total-price span'),
       ticketTypeRightStatus = document.querySelector('.booking__right-status-text'),
-      ticketTypePopUpSelect = document.querySelector('.booking__select');
+      ticketTypePopUpSelect = document.querySelector('.booking__select'),
+      popUpBasicTotalPrice = document.querySelector('.booking__right-basic-price span'),
+      popUpSeniorTotalPrice = document.querySelector('.booking__right-senior-price span'),
+      basicAmountRight = document.querySelector('.booking__right-basic-amount'),
+      seniorAmountRight = document.querySelector('.booking__right-senior-amount');
 
 // load info from localStorage
 radios.forEach(radio => {
@@ -426,9 +436,7 @@ const basicAmount = document.querySelector('.booking__basic-amount'),
       basicAmountMinus = document.querySelector('.booking__basic-minus'),
       basicAmountPlus = document.querySelector('.booking__basic-plus'),
       seniorAmountMinus = document.querySelector('.booking__senior-minus'),
-      seniorAmountPlus = document.querySelector('.booking__senior-plus'),
-      basicAmountRight = document.querySelector('.booking__right-basic-amount'),
-      seniorAmountRight = document.querySelector('.booking__right-senior-amount');
+      seniorAmountPlus = document.querySelector('.booking__senior-plus');
 
 upBtn.forEach(btn => {
   btn.addEventListener('click', (e) => {
@@ -436,22 +444,23 @@ upBtn.forEach(btn => {
     if (e.target.parentElement.classList.contains('tickets__basic-quantity')) {
       upTicketsCount(basicQuantity)
       calculatePrice()
+      calculateTypePrice(popUpBasicTotalPrice, basicAmountRight.textContent, 20)
     } else if (e.target.parentElement.classList.contains('tickets__senior-quantity')) {
       upTicketsCount(seniorQuantity)
       calculatePrice()
+      calculateTypePrice(popUpSeniorTotalPrice, seniorAmountRight.textContent, 10)
     } else if (e.target.parentElement.classList.contains('basic')) {
       upTicketsCount(basicAmount)
       upTicketsCount(basicQuantity)
       ++basicAmountRight.textContent;
       calculatePrice()
-      console.log('plus basic');
-      console.log(basicAmountRight.textContent);
+      calculateTypePrice(popUpBasicTotalPrice, basicAmountRight.textContent, 20)
     } else if (e.target.parentElement.classList.contains('senior')) {
       upTicketsCount(seniorAmount)
       upTicketsCount(seniorQuantity)
       ++seniorAmountRight.textContent;
       calculatePrice()
-      console.log('plus senior');
+      calculateTypePrice(popUpSeniorTotalPrice, seniorAmountRight.textContent, 10)
     }
   })
 })
@@ -462,9 +471,11 @@ downBtn.forEach(btn => {
     if (e.target.parentElement.classList.contains('tickets__basic-quantity')) {
       downTicketsCount(basicQuantity)
       calculatePrice()
+      calculateTypePrice(popUpBasicTotalPrice, basicAmountRight.textContent, 20)
     } else if (e.target.parentElement.classList.contains('tickets__senior-quantity')) {
       downTicketsCount(seniorQuantity)
       calculatePrice()
+      calculateTypePrice(popUpSeniorTotalPrice, seniorAmountRight.textContent, 10)
     } else if (e.target.parentElement.classList.contains('basic')) {
       downTicketsCount(basicAmount)
       downTicketsCount(basicQuantity)
@@ -472,6 +483,7 @@ downBtn.forEach(btn => {
         --basicAmountRight.textContent;
       }
       calculatePrice()
+      calculateTypePrice(popUpBasicTotalPrice, basicAmountRight.textContent, 20)
     } else if (e.target.parentElement.classList.contains('senior')) {
       downTicketsCount(seniorAmount)
       downTicketsCount(seniorQuantity)
@@ -479,6 +491,7 @@ downBtn.forEach(btn => {
         --seniorAmountRight.textContent;
       }
       calculatePrice()
+      calculateTypePrice(popUpSeniorTotalPrice, seniorAmountRight.textContent, 10)
     }
   })
 })
@@ -489,8 +502,13 @@ ticketTypes.forEach(radio => {
 
 // Ticket type popup select
 
-ticketTypePopUpSelect.addEventListener('change', (e) => {
-  console.log(e.target.value);
+ticketTypePopUpSelect.addEventListener('change', () => {
+  for (let i = 0; i < ticketTypePopUpSelect.children.length; i++) {
+    if(ticketTypePopUpSelect.children[i].selected) {
+      ticketTypes[i].checked = true;
+      calculatePrice()
+    }
+  }
 })
 
 // Buy Tickets
@@ -510,9 +528,11 @@ buyBtn.addEventListener('click', () => {
   seniorAmountRight.textContent = +localStorage.getItem('seniorQuantity');
   calculatePrice()
 
-  // ticketTypeRightStatus.textContent = localStorage.getItem('ticketType');
-  console.log(localStorage.getItem('ticketType'));
-  // popUpTotalPrice.textContent = 
+  for (let i = 0; i < ticketTypes.length; i++) {
+    if(ticketTypes[i].checked) {
+      ticketTypePopUpSelect.children[i].selected = true;
+    }
+  }
 })
 overlay.addEventListener('click', () => {
   removeClass(booking, 'visible-booking')

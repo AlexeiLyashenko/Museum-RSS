@@ -367,17 +367,17 @@
                                     <div class="booking__select-block">
                                         <label class="booking__select-label" for="booking__ticket-type"></label>
                                         <select class="booking__select" name="Ticket type" id="booking__ticket-type">
-                                            <option value="" disabled selected hidden>Ticket type</option>
-                                            <option value="1">Permanent exhibition</option>
-                                            <option value="2">Temporary exhibition</option>
-                                            <option value="3">Combined Admission</option>
+                                            <!-- <option value="" disabled selected hidden>Ticket type</option> -->
+                                            <option value="20">Permanent exhibition</option>
+                                            <option value="25">Temporary exhibition</option>
+                                            <option value="40">Combined Admission</option>
                                         </select>
                                     </div>
                                     <div class="booking__entry-ticket">
                                         <div class="booking__entry-ticket-title red-line">Entry ticket</div>
                                         <div class="booking__entry-red-line --red-line"></div>
                                         <div class="booking__entry-basic">
-                                            <p>Basic 18+ (20 €)</p>
+                                            <p>Basic 18+ (<span>20</span> €)</p>
                                             <div class="booking__ticket-counter basic">
                                                 <button class="booking__basic-minus down">-</button>
                                                 <input class="booking__basic-amount" type="text" value="0" readonly="readonly">
@@ -385,7 +385,7 @@
                                             </div>
                                         </div>
                                         <div class="booking__entry-senior">
-                                            <p>Senior 65+ (10 €)</p>
+                                            <p>Senior 65+ (<span>10</span> €)</p>
                                             <div class="booking__ticket-counter senior">
                                                 <button class="booking__senior-minus down">-</button>
                                                 <input class="booking__senior-amount" type="text" value="0" readonly="readonly">
@@ -420,12 +420,12 @@
                                         <div class="booking__right-basic-price">
                                             <div class="booking__right-basic-amount">2</div>
                                             <div class="booking__right-basic-text">Basic (20 €)</div>
-                                            <div class="booking__right-basic-price">40 €</div>
+                                            <div class="booking__right-basic-price"><span></span> €</div>
                                         </div>
                                         <div class="booking__right-senior-price">
                                             <div class="booking__right-senior-amount">3</div>
                                             <div class="booking__right-senior-text">Senior (10 €)</div>
-                                            <div class="booking__right-senior-price">20 €</div>
+                                            <div class="booking__right-senior-price"><span></span> €</div>
                                         </div>
                                         <div class="booking__right-line --red-line"></div>
                                         <div class="booking__right-total">
