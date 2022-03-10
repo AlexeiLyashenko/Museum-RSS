@@ -2077,7 +2077,14 @@ button {
     justify-content: center;
     position: relative;
 }
-/* Использовать отдельные блоки и позиционирование для размещения иконок в инпутах */
+
+.error-block {
+    position: absolute;
+    top: 270px;
+    transition: .2s ease-in-out;
+    @include font('Roboto', 18px, 400, 24px, null);
+    color: red;
+}
 
 .booking {
     position: fixed;
@@ -2255,12 +2262,9 @@ button {
     }
 
     &__select {
-        // padding-left: 45px;
-        // position: relative;
         display: block;
         width: 100%;
         height: 100%;
-        // border: 1px solid $bg-dark;
         border: none;
         outline: none;
         &::after {
@@ -2511,11 +2515,27 @@ button {
 
 }
 
+.booking-error {
+    position: absolute;
+    top: 270px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease-in-out;
+}
+
 .visible {
     left: 0;
     opacity: 1;
     visibility: visible;
     transition: .3s ease-in-out;
+}
+.visible-booking-error {
+    opacity: 1;
+    visibility: visible;
+    transition: .3s ease-in-out;
+}
+.red-color {
+    color: red;
 }
 .visible-booking {
     left: 50%;
@@ -2546,11 +2566,6 @@ button {
     width: 100%;
     height: 100%;
 }
-
-// .active-image {
-//     opacity: 1;
-//     transition: .2s;
-// }
 
 // Footer
 

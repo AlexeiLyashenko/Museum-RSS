@@ -413,7 +413,49 @@ const radios = document.querySelectorAll('.tickets__type input[type="radio"]'),
       popUpBasicTotalPrice = document.querySelector('.booking__right-basic-price span'),
       popUpSeniorTotalPrice = document.querySelector('.booking__right-senior-price span'),
       basicAmountRight = document.querySelector('.booking__right-basic-amount'),
-      seniorAmountRight = document.querySelector('.booking__right-senior-amount');
+      seniorAmountRight = document.querySelector('.booking__right-senior-amount'),
+      bookingDate = document.querySelector('.booking__date'),
+      bookingTime = document.querySelector('.booking__time'),
+      bookingDateOut = document.querySelector('.booking__right-date-text'),
+      bookingTimeOut = document.querySelector('.booking__right-time-text'),
+      bookingErrorBlock = document.querySelector('.error-block');
+
+// Set date & time on ticket
+
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+function setStringDate(inputTarget, outTarget) {
+  const date = new Date(inputTarget.valueAsNumber);
+  let month = months[date.getMonth()];
+  let day = daysOfTheWeek[date.getDay()];
+  let dateNum = date.getDate();
+  // showError(bookingDateErrorTarget);
+  if (inputTarget.valueAsNumber < Date.now()) {
+    bookingErrorBlock.classList.remove('hidden');
+    bookingErrorBlock.classList.add('visible-booking-error');
+    bookingDate.classList.add('red-color');
+  } else {
+    bookingErrorBlock.classList.remove('visible-booking-error');
+    bookingErrorBlock.classList.add('hidden');
+    bookingDate.classList.remove('red-color');
+    outTarget.textContent = `${day}, ${month} ${dateNum}`;
+  }
+}
+
+function showError(outTarget) {
+  // const div = document.createElement('div');
+  // div.innerText = `You can only select a future date`;
+  // div.classList.add('hidden');
+  // setTimeout(() => {
+  //   outTarget.insertAdjacentElement('beforebegin', div);
+  // }, 0);
+  
+}
+
+bookingDate.addEventListener('change', (e) => {
+  setStringDate(e.target, bookingDateOut);
+})
 
 // load info from localStorage
 radios.forEach(radio => {
@@ -543,7 +585,4 @@ closeBooking.addEventListener('click', () => {
   removeClass(booking, 'visible-booking')
   removeClass(overlay, 'visible')
 })
-
-
-// Booking
 
