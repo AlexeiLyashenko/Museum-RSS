@@ -333,7 +333,6 @@
                             <a href="mailto:info@louvre.fr" class="contacts__mail">mail: info@louvre.fr</a>
                         </div>
                         <div class="contacts__map">
-                            <!-- <img src="./assets/img/map.png" alt=""> -->
                             <div id="map"></div>
                         </div>
                     </div>
@@ -350,8 +349,8 @@
                                     <div class="booking__subtitle">Tour to Louvre</div>
                                     <div class="error-block hidden">You can only select a future date</div>
                                     <div class="booking__date-row">
-                                        <input type="date" class="booking__date">
-                                        <input type="time" class="booking__time">
+                                        <input class="booking__date" type="date">
+                                        <input class="booking__time" type="time" min="09:00" max="18:00" step="1800">
                                     </div>
                                     <div class="booking__name --input-block">
                                         <label for="booking__name-input" class="booking__name-label --input-label"></label>
@@ -368,7 +367,6 @@
                                     <div class="booking__select-block">
                                         <label class="booking__select-label" for="booking__ticket-type"></label>
                                         <select class="booking__select" name="Ticket type" id="booking__ticket-type">
-                                            <!-- <option value="" disabled selected hidden>Ticket type</option> -->
                                             <option value="20">Permanent exhibition</option>
                                             <option value="25">Temporary exhibition</option>
                                             <option value="40">Combined Admission</option>
@@ -433,6 +431,34 @@
                                             <div class="booking__right-total-text">Total:</div>
                                             <div class="booking__right-total-price"><span>60</span> €</div>
                                         </div>
+                                    </div>
+                                    <div class="booking__card-container">
+                                        <div class="booking__card-up">
+                                            <div class="booking__card-block">
+                                                <div class="booking__card-row">
+                                                    <div class="booking__card-body">
+                                                        <h5 class="booking__card-title">Card number</h5>
+                                                        <input type="text" class="booking__card-number">
+                                                        <h5 class="booking__card-subtitle">Expiration date</h5>
+                                                        <div class="booking__card-row-number">
+                                                            <input class="booking__card-month" type="number">
+                                                            <input class="booking__card-year" type="number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="booking__card-logo">
+                                                        <div class="booking__card-visa">
+                                                            <img src="./assets/icons/Visa.png" alt="">
+                                                        </div>
+                                                        <div class="booking__card-master">
+                                                            <img src="./assets/icons/Mastercard.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="booking__card-title-name">Cardholder name</div>
+                                                <input class="booking__card-name" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="booking__card-down"></div>
                                     </div>
                                 </div>
                             </form>

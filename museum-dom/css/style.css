@@ -3922,6 +3922,10 @@ button {
   margin-bottom: 35px;
 }
 
+.booking__right-line::after {
+  height: 2px;
+}
+
 .booking__right-total {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3929,6 +3933,7 @@ button {
 }
 
 .booking__right-total-text {
+  margin-bottom: 10px;
   font-family: "Roboto";
   font-size: 32px;
   font-weight: 400;
@@ -3941,6 +3946,125 @@ button {
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
+}
+
+.booking__card-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.booking__card-container input {
+  height: 35px;
+  padding: 10px;
+  border: 0.5px solid rgba(164, 164, 163, 0.7);
+  outline: none;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.booking__card-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 15px 20px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 360px;
+          flex: 0 1 360px;
+  min-width: 360px;
+  background-color: #BCBCBC;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 4px 4px 0px #ececec;
+          box-shadow: 0px 4px 4px 0px #ececec;
+}
+
+.booking__card-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.booking__card-body {
+  max-width: 215px;
+}
+
+.booking__card-title {
+  margin: 0 0 5px 0;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.booking__card-number {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.booking__card-subtitle {
+  margin: 0 0 5px 0;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.booking__card-row-number {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.booking__card-month {
+  margin-right: 16px;
+  max-width: 100px;
+}
+
+.booking__card-year {
+  max-width: 100px;
+}
+
+.booking__card-logo {
+  margin-top: 20px;
+}
+
+.booking__card-visa {
+  margin-bottom: 15px;
+  width: 55px;
+}
+
+.booking__card-visa img {
+  max-width: 100%;
+}
+
+.booking__card-master {
+  width: 55px;
+}
+
+.booking__card-master img {
+  max-width: 100%;
+}
+
+.booking__card-title-name {
+  margin-bottom: 5px;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.booking__card-name {
+  width: 100%;
 }
 
 .booking-error {

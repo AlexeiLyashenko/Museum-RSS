@@ -2495,6 +2495,9 @@ button {
 
     &__right-line {
         margin-bottom: 35px;
+        &::after {
+            height: 2px;
+        }
     }
 
     &__right-total {
@@ -2502,6 +2505,7 @@ button {
     }
 
     &__right-total-text {
+        margin-bottom: 10px;
         @include font('Roboto', 32px, 400, 38px, null);
     }
 
@@ -2510,8 +2514,104 @@ button {
         @include font('Roboto', 32px, 700, 38px, null);
     }
 
-.--red-line {
-}
+    // Card booking
+
+    &__card-container {
+        position: relative;
+        display: flex;
+        & input {
+            height: 35px;
+            padding: 10px;
+            border: .5px solid rgba(164, 164, 163, 0.7);
+            outline: none;
+            @include font('Roboto', 12px, 400, 14px, null);
+        }
+    }
+
+    &__card-up {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 15px 20px;
+        flex: 0 1 360px;
+        min-width: 360px;
+        background-color: #BCBCBC;
+        border-radius: 5px;
+        box-shadow: 0px 4px 4px 0px #ececec;
+    }
+
+    &__card-block {
+    }
+
+    &__card-row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__card-body {
+        max-width: 215px;
+    }
+
+    &__card-title {
+        margin: 0 0 5px 0;
+        @include font('Roboto', 12px, 400, 14px, null);
+    }
+
+    &__card-number {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    &__card-subtitle {
+        margin: 0 0 5px 0;
+        @include font('Roboto', 12px, 400, 14px, null);
+    }
+
+    &__card-row-number {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__card-month {
+        margin-right: 16px;
+        max-width: 100px;
+    }
+
+    &__card-year {
+        max-width: 100px;
+    }
+
+    &__card-logo {
+        margin-top: 20px;
+    }
+
+    &__card-visa {
+        margin-bottom: 15px;
+        width: 55px;
+        & img {
+            max-width: 100%;
+        }
+    }
+
+    &__card-master {
+        width: 55px;
+        & img {
+            max-width: 100%;
+        }
+    }
+
+    &__card-down {
+    }
+
+    &__card-title-name {
+        margin-bottom: 5px;
+        @include font('Roboto', 12px, 400, 14px, null);
+    }
+
+    &__card-name {
+        width: 100%;
+    }
 
 }
 

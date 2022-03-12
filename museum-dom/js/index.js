@@ -430,8 +430,8 @@ function setStringDate(inputTarget, outTarget) {
   let month = months[date.getMonth()];
   let day = daysOfTheWeek[date.getDay()];
   let dateNum = date.getDate();
-  // showError(bookingDateErrorTarget);
-  if (inputTarget.valueAsNumber < Date.now()) {
+  if (inputTarget.valueAsNumber < (Date.now() - (86400 * 1000))) {
+    // console.log(inputTarget.valueAsNumber, (Date.now() - (43200 * 1000)));
     bookingErrorBlock.classList.remove('hidden');
     bookingErrorBlock.classList.add('visible-booking-error');
     bookingDate.classList.add('red-color');
@@ -441,16 +441,6 @@ function setStringDate(inputTarget, outTarget) {
     bookingDate.classList.remove('red-color');
     outTarget.textContent = `${day}, ${month} ${dateNum}`;
   }
-}
-
-function showError(outTarget) {
-  // const div = document.createElement('div');
-  // div.innerText = `You can only select a future date`;
-  // div.classList.add('hidden');
-  // setTimeout(() => {
-  //   outTarget.insertAdjacentElement('beforebegin', div);
-  // }, 0);
-  
 }
 
 bookingDate.addEventListener('change', (e) => {
