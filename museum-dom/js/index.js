@@ -356,15 +356,10 @@ changeImgOnResize(ticketsImg, './assets/img/tickets-img-media.jpg', 200, 420)
 changeImgOnResize(ticketsImg ,'./assets/img/tickets-img-1024.jpg', 768, 1024)
 changeImgOnResize(ticketsImg ,'./assets/img/tickets-img-768.jpg', 420, 768);
 
-
-      //map block
-changeImgOnResize(mapImg, './assets/img/map-1024.png', 769, 1024)
-
 window.addEventListener('resize', () => {
   changeImgOnResize(ticketsImg ,'./assets/img/tickets-img-media.jpg', 200, 420)
   changeImgOnResize(ticketsImg ,'./assets/img/tickets-img-1024.jpg', 768, 1024)
   changeImgOnResize(ticketsImg ,'./assets/img/tickets-img-768.jpg', 420, 768);
-  changeImgOnResize(mapImg, './assets/img/map-1024.png', 769, 1024)
 })
 
 // Tickets calculate

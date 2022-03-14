@@ -2530,6 +2530,7 @@ button {
 
     &__card-up {
         position: absolute;
+        z-index: 2;
         top: 0;
         left: 0;
         padding: 15px 20px;
@@ -2537,7 +2538,6 @@ button {
         min-width: 360px;
         background-color: #BCBCBC;
         border-radius: 5px;
-        box-shadow: 0px 4px 4px 0px #ececec;
     }
 
     &__card-block {
@@ -2570,16 +2570,123 @@ button {
     &__card-row-number {
         margin-bottom: 10px;
         display: flex;
+        max-width: 215px;
         justify-content: space-between;
     }
 
+    &__card-month-block {
+        margin-right: 15px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+
     &__card-month {
-        margin-right: 16px;
-        max-width: 100px;
+        width: 100%;
+    }
+
+    &__card-month-control {
+        width: 28px;
+        height: 35px;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border: 0.5px solid rgba(164, 164, 163, 0.7);
+    }
+
+    &__card-month-plus {
+        position: relative;
+        display: flex;
+        width: 20px;
+        height: 17px;
+        cursor: pointer;
+        &::after {
+            @include svgMaskPseudo(9px, 7px, '../assets/icons/arrow-up.svg', 9px, #A4A4A3);
+            top: 60%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+            transition: .2s ease-in-out;
+        }
+        &:hover::after {
+            background-color: #888888;
+            transition: .2s ease-in-out;
+        }
+    }
+
+    &__card-month-minus {
+        position: relative;
+        display: flex;
+        width: 20px;
+        height: 17px;
+        cursor: pointer;
+        &::after {
+            @include svgMaskPseudo(9px, 7px, '../assets/icons/arrow-down.svg', 8px, #A4A4A3);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: .2s ease-in-out;
+        }
+        &:hover::after {
+            background-color: #888888;
+            transition: .2s ease-in-out;
+        }
+    }
+
+    &__card-year-block {
+        width: 50%;
+        display: flex;
+        align-items: center;
     }
 
     &__card-year {
-        max-width: 100px;
+        width: 100%;
+    }
+
+    &__card-year-control {
+        width: 28px;
+        height: 35px;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border: 0.5px solid rgba(164, 164, 163, 0.7);
+    }
+
+    &__card-year-plus {
+        position: relative;
+        display: flex;
+        width: 20px;
+        height: 17px;
+        cursor: pointer;
+        &::after {
+            @include svgMaskPseudo(9px, 7px, '../assets/icons/arrow-up.svg', 9px, #A4A4A3);
+            top: 60%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+            transition: .2s ease-in-out;
+        }
+        &:hover::after {
+            background-color: #888888;
+            transition: .2s ease-in-out;
+        }
+    }
+
+    &__card-year-minus {
+        position: relative;
+        display: flex;
+        width: 20px;
+        height: 17px;
+        cursor: pointer;
+        &::after {
+            @include svgMaskPseudo(9px, 7px, '../assets/icons/arrow-down.svg', 8px, #A4A4A3);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: .2s ease-in-out;
+        }
+        &:hover::after {
+            background-color: #888888;
+            transition: .2s ease-in-out;
+        }
     }
 
     &__card-logo {
@@ -2611,6 +2718,55 @@ button {
 
     &__card-name {
         width: 100%;
+    }
+
+    &__card-down {
+        position: absolute;
+        z-index: 1;
+        top: 35px;
+        left: 110px;
+        width: 360px;
+        max-width: 360px;
+        background-color: #939393;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    &__card-top {
+        width: 360px;
+        height: 25px;
+        background-color: #939393;
+        border-radius: 5px;
+    }
+
+    &__card-middle {
+        width: 360px;
+        height: 45px;
+        background-color: #161615;
+    }
+
+    &__card-bottom {
+        padding: 15px 20px;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: flex-end;
+    }
+
+    &__card-title {
+        padding-right: 12px;
+        margin-bottom: 5px;
+        @include font('Roboto', 12px, 400, 14px, null);
+    }
+
+    &__card-cvv {
+        width: 75px;
+        height: 35px;
+        margin-bottom: 5px;
+    }
+
+    &__card-text {
+        padding-right: 10px;
+        @include font('Roboto', 10px, 400, 12px, null);
     }
 
 }

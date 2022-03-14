@@ -3968,6 +3968,7 @@ button {
 
 .booking__card-up {
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   padding: 15px 20px;
@@ -3977,8 +3978,6 @@ button {
   min-width: 360px;
   background-color: #BCBCBC;
   border-radius: 5px;
-  -webkit-box-shadow: 0px 4px 4px 0px #ececec;
-          box-shadow: 0px 4px 4px 0px #ececec;
 }
 
 .booking__card-row {
@@ -4020,18 +4019,211 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  max-width: 215px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
+.booking__card-month-block {
+  margin-right: 15px;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .booking__card-month {
-  margin-right: 16px;
-  max-width: 100px;
+  width: 100%;
+}
+
+.booking__card-month-control {
+  width: 28px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  border: 0.5px solid rgba(164, 164, 163, 0.7);
+}
+
+.booking__card-month-plus {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.booking__card-month-plus::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 7px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/arrow-up.svg") no-repeat center;
+  mask: url("../assets/icons/arrow-up.svg") no-repeat center;
+  -webkit-mask-size: 9px;
+  mask-size: 9px;
+  background-color: #A4A4A3;
+  top: 60%;
+  left: 53%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.booking__card-month-plus:hover::after {
+  background-color: #888888;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.booking__card-month-minus {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.booking__card-month-minus::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 7px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/arrow-down.svg") no-repeat center;
+  mask: url("../assets/icons/arrow-down.svg") no-repeat center;
+  -webkit-mask-size: 8px;
+  mask-size: 8px;
+  background-color: #A4A4A3;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.booking__card-month-minus:hover::after {
+  background-color: #888888;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.booking__card-year-block {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .booking__card-year {
-  max-width: 100px;
+  width: 100%;
+}
+
+.booking__card-year-control {
+  width: 28px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  border: 0.5px solid rgba(164, 164, 163, 0.7);
+}
+
+.booking__card-year-plus {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.booking__card-year-plus::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 7px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/arrow-up.svg") no-repeat center;
+  mask: url("../assets/icons/arrow-up.svg") no-repeat center;
+  -webkit-mask-size: 9px;
+  mask-size: 9px;
+  background-color: #A4A4A3;
+  top: 60%;
+  left: 53%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.booking__card-year-plus:hover::after {
+  background-color: #888888;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.booking__card-year-minus {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.booking__card-year-minus::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 7px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../assets/icons/arrow-down.svg") no-repeat center;
+  mask: url("../assets/icons/arrow-down.svg") no-repeat center;
+  -webkit-mask-size: 8px;
+  mask-size: 8px;
+  background-color: #A4A4A3;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.booking__card-year-minus:hover::after {
+  background-color: #888888;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
 }
 
 .booking__card-logo {
@@ -4065,6 +4257,67 @@ button {
 
 .booking__card-name {
   width: 100%;
+}
+
+.booking__card-down {
+  position: absolute;
+  z-index: 1;
+  top: 35px;
+  left: 110px;
+  width: 360px;
+  max-width: 360px;
+  background-color: #939393;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.booking__card-top {
+  width: 360px;
+  height: 25px;
+  background-color: #939393;
+  border-radius: 5px;
+}
+
+.booking__card-middle {
+  width: 360px;
+  height: 45px;
+  background-color: #161615;
+}
+
+.booking__card-bottom {
+  padding: 15px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.booking__card-title {
+  padding-right: 12px;
+  margin-bottom: 5px;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.booking__card-cvv {
+  width: 75px;
+  height: 35px;
+  margin-bottom: 5px;
+}
+
+.booking__card-text {
+  padding-right: 10px;
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
 }
 
 .booking-error {

@@ -441,8 +441,20 @@
                                                         <input type="text" class="booking__card-number">
                                                         <h5 class="booking__card-subtitle">Expiration date</h5>
                                                         <div class="booking__card-row-number">
-                                                            <input class="booking__card-month" type="number">
-                                                            <input class="booking__card-year" type="number">
+                                                            <div class="booking__card-month-block">
+                                                                <input class="booking__card-month" type="text">
+                                                                <div class="booking__card-month-control">
+                                                                    <div class="booking__card-month-plus"></div>
+                                                                    <div class="booking__card-month-minus"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="booking__card-year-block">
+                                                                <input class="booking__card-year" type="text">
+                                                                <div class="booking__card-year-control">
+                                                                    <div class="booking__card-year-plus"></div>
+                                                                    <div class="booking__card-year-minus"></div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="booking__card-logo">
@@ -458,7 +470,15 @@
                                                 <input class="booking__card-name" type="text">
                                             </div>
                                         </div>
-                                        <div class="booking__card-down"></div>
+                                        <div class="booking__card-down">
+                                            <div class="booking__card-top"></div>
+                                            <div class="booking__card-middle"></div>
+                                            <div class="booking__card-bottom">
+                                                <div class="booking__card-title">CVC/CVV</div>
+                                                <input class="booking__card-cvv" type="text">
+                                                <div class="booking__card-text">The last<br>3 or 4 digits<br>on back<br>of the card</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
