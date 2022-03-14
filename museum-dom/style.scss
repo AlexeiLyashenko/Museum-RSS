@@ -2354,7 +2354,10 @@ button {
     }
 
     &__right {
+        display: flex;
+        flex-direction: column;
         flex: 0 1 530px;
+        width: 100%;
         padding: 25px 30px;
         border: 1px solid #000;
     }
@@ -2517,6 +2520,8 @@ button {
     // Card booking
 
     &__card-container {
+        margin-bottom: 25px;
+        height: 242px;
         position: relative;
         display: flex;
         & input {
@@ -2748,7 +2753,6 @@ button {
         padding: 15px 20px;
         display: flex;
         flex-direction: column;
-        // justify-content: center;
         align-items: flex-end;
     }
 
@@ -2767,6 +2771,29 @@ button {
     &__card-text {
         padding-right: 10px;
         @include font('Roboto', 10px, 400, 12px, null);
+    }
+
+    &__book-btn {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 220px;
+        height: 45px;
+        border: none;
+        outline: none;
+        background-color: $dark-red;
+        color: #ffffff;
+        @include font('Roboto', 22px, 400, 16px, null);
+        transition: .2s;
+        &:hover {
+            background-color: $font-gold;
+            transition: .2s;
+        }
+        &:active {
+            background-color: #615441;
+            transition: .1s;
+        }
     }
 
 }
