@@ -426,8 +426,8 @@ function setStringDate(inputTarget, outTarget) {
   let month = months[date.getMonth()];
   let day = daysOfTheWeek[date.getDay()];
   let dateNum = date.getDate();
-  // if (inputTarget.valueAsNumber < (Date.now() - (86400 * 1000))) {
-  if (inputTarget.valueAsNumber < Date.now() && selectedTimestamp < Date.now()) {
+  if (inputTarget.valueAsNumber < (Date.now() - (86400 * 1000))) {
+  // if (inputTarget.valueAsNumber < Date.now() && selectedTimestamp < Date.now()) {
     console.log(selectedTimestamp < Date.now());
     bookingErrorBlock.classList.remove('hidden');
     bookingErrorBlock.classList.add('visible-booking-error');
@@ -436,7 +436,12 @@ function setStringDate(inputTarget, outTarget) {
     bookingErrorBlock.classList.remove('visible-booking-error');
     bookingErrorBlock.classList.add('hidden');
     bookingDate.classList.remove('red-color');
-    outTarget.textContent = `${day}, ${month} ${dateNum}`;
+    let outDate = `${day}, ${month} ${dateNum}`;
+    outTarget.textContent = outDate;
+    if(bookingDate.value) {
+      localStorage.setItem('booking-date-text', outDate);
+      localStorage.setItem('booking-date-value', bookingDate.value);
+    }
   }
 }
 
@@ -469,12 +474,29 @@ let selectedTimestamp;
 
 bookingDate.addEventListener('change', (e) => {
   setStringDate(e.target, bookingDateOut);
-  console.log(e.target.valueAsDate);
 })
 
 bookingTime.addEventListener('change', (e) => {
   bookingTimeOut.textContent = e.target.value;
   setTimeValidation();
+  if(bookingTime.value) {
+    localStorage.setItem('booking-time', bookingTime.value);
+  }
+})
+
+function setDateFromLocalStorage() {
+  if (localStorage.getItem('booking-date')) {
+    bookingDate.value = localStorage.getItem('booking-date-value');
+    bookingDateOut.textContent = localStorage.getItem('booking-date-text');
+  }
+  if (localStorage.getItem('booking-time')) {
+    bookingTime.value = localStorage.getItem('booking-time');
+    bookingTimeOut.textContent = bookingTime.value;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setDateFromLocalStorage();
 })
 
 // load info from localStorage
