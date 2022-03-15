@@ -350,7 +350,28 @@
                                     <div class="error-block hidden">You can only select a future date</div>
                                     <div class="booking__date-row">
                                         <input class="booking__date" type="date">
-                                        <input class="booking__time" type="time" min="09:00" max="18:00" step="1800">
+                                        <input class="booking__time" type="time" list="timelist">
+                                        <datalist class="booking__timelist" id="timelist">
+                                            <option value="09:00">09:00</option>
+                                            <option value="09:30">09:30</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="10:30">10:30</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="11:30">11:30</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="12:30">12:30</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="13:30">13:30</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="14:30">14:30</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="15:30">15:30</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="16:30">16:30</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="17:30">17:30</option>
+                                            <option value="18:00">18:00</option>
+                                        </datalist>
                                     </div>
                                     <div class="booking__name --input-block">
                                         <label for="booking__name-input" class="booking__name-label --input-label"></label>

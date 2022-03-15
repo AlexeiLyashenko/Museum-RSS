@@ -413,7 +413,8 @@ const radios = document.querySelectorAll('.tickets__type input[type="radio"]'),
       bookingTime = document.querySelector('.booking__time'),
       bookingDateOut = document.querySelector('.booking__right-date-text'),
       bookingTimeOut = document.querySelector('.booking__right-time-text'),
-      bookingErrorBlock = document.querySelector('.error-block');
+      bookingErrorBlock = document.querySelector('.error-block'),
+      bookingTimelist = document.querySelector('.booking__timelist');
 
 // Set date & time on ticket
 
@@ -425,8 +426,9 @@ function setStringDate(inputTarget, outTarget) {
   let month = months[date.getMonth()];
   let day = daysOfTheWeek[date.getDay()];
   let dateNum = date.getDate();
-  if (inputTarget.valueAsNumber < (Date.now() - (86400 * 1000))) {
-    // console.log(inputTarget.valueAsNumber, (Date.now() - (43200 * 1000)));
+  // if (inputTarget.valueAsNumber < (Date.now() - (86400 * 1000))) {
+  if (inputTarget.valueAsNumber < Date.now() && selectedTimestamp < Date.now()) {
+    console.log(selectedTimestamp < Date.now());
     bookingErrorBlock.classList.remove('hidden');
     bookingErrorBlock.classList.add('visible-booking-error');
     bookingDate.classList.add('red-color');
@@ -438,8 +440,41 @@ function setStringDate(inputTarget, outTarget) {
   }
 }
 
+function setTimeValidation() {
+  let newDate = bookingDate.value;
+  let year = newDate.slice(0, 4);
+  let month = newDate.slice(5, 7);
+  let day = newDate.slice(8, 10);
+  newDate = `${month}/${day}/${year}`;
+
+  let date = `${newDate} ${bookingTime.value}:00`;
+  selectedTimestamp = Date.parse(date);
+
+  if(selectedTimestamp < Date.now()) {
+    bookingErrorBlock.classList.remove('hidden');
+    bookingErrorBlock.classList.add('visible-booking-error');
+    bookingDate.classList.add('red-color');
+  } else {
+    bookingErrorBlock.classList.remove('visible-booking-error');
+    bookingErrorBlock.classList.add('hidden');
+    bookingDate.classList.remove('red-color');
+  }
+  console.log(selectedTimestamp);
+  console.log(Date.now());
+}
+
+// Fill the text woth Date & time
+
+let selectedTimestamp;
+
 bookingDate.addEventListener('change', (e) => {
   setStringDate(e.target, bookingDateOut);
+  console.log(e.target.valueAsDate);
+})
+
+bookingTime.addEventListener('change', (e) => {
+  bookingTimeOut.textContent = e.target.value;
+  setTimeValidation();
 })
 
 // load info from localStorage
@@ -524,7 +559,7 @@ downBtn.forEach(btn => {
 })
 
 ticketTypes.forEach(radio => {
-  radio.addEventListener('change', calculatePrice)
+  radio.addEventListener('change', calculatePrice);
 })
 
 // Ticket type popup select
