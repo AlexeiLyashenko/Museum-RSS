@@ -2091,23 +2091,54 @@ button {
     top: 50%;
     transform: translate(-50%, -50%);
     left: -300%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
     opacity: 0;
     visibility: hidden;
     z-index: 4;
     transition: .3s ease-in-out;
     &__content {
-        position: relative;
-        width: 100%;
-        height: 100%;
+        padding: 10vh 2vh;
+        display: flex;
+        justify-content: center;
+        max-height: 90vh;
+        width: 95%;
+        background-color: #fff;
+        @include media(1024px) {
+            padding: 6vh 3vh;
+            overflow: scroll;
+        }
+        @include media(768px) {
+            padding: 6vh 6vh;
+            width: 98%;
+        }
+        @include media(550px) {
+            padding: 4vh 2vh;
+        }
     }
 
     &__close {
         position: absolute;
         top: 35px;
-        right: 30px;
+        right: 55px;
         width: 35px;
         height: 35px;
         cursor: pointer;
+        @include media(1024px) {
+            top: 25px;
+            right: 45px;
+        }
+        @include media(768px) {
+            top: 15px;
+            right: 25px;
+        }
+        @include media(500px) {
+            top: 15px;
+            right: 20px;
+        }
         &::before {
             content: '';
             position: absolute;
@@ -2127,33 +2158,43 @@ button {
             height: 1px;
             background-color: #030303;
             transform: rotate(45deg);
-            
         }
     }
 
     &__container {
-        margin: 0 auto;
-        padding: 90px 0;
-        width: 1440px;
+        flex: 0 1 970px;
+        height: 100%;
         display: flex;
         justify-content: center;
-        background-color: #fff;
-    }
-
-    &__row {
-        width: 100%;
-        & form {
-            max-width: 970px;
-            display: flex;
-            justify-content: space-between;
+        @include media(1024px) {
+            flex: 0 1 530px;
         }
-        max-width: 970px;
+        @include media(500px) {
+            flex: 0 1 400px;
+
+        }
+    }
+    & form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        @include media(1024px) {
+            flex-direction: column;
+        }
+        @include media(375px) {
+            max-width: 320px;
+        }
     }
 
     &__left {
         flex: 0 1 400px;
+        max-height: 665px;
         display: flex;
         flex-direction: column;
+        @include media(1024px) {
+            margin-bottom: 50px;
+        }
     }
 
     &__icon {
@@ -2174,12 +2215,21 @@ button {
         &:after {
             top: 100px;
         }
+        @include media(460px) {
+            @include font('Forum', 32px, 400, 35px, 0);
+        }
     }
 
     &__subtitle {
         margin-bottom: 73px;
         @include font('Roboto', 18px, 400, 21px, null);
         color: $dark-red;
+        @include media(768px) {
+            margin-bottom: 40px;
+        }
+        @include media(460px) {
+            margin-bottom: 70px;
+        }
     }
 
     &__date-row {
@@ -2195,6 +2245,9 @@ button {
         margin-right: 20px;
         flex: 0 1 calc(50% - 10px);
         @include font('Roboto', 18px, 400, 21px, null);
+        @include media(460px) {
+            padding-left: 20px;
+        }
     }
 
     &__time {
@@ -2204,6 +2257,9 @@ button {
         outline: none;
         flex: 0 1 calc(50% - 10px);
         @include font('Roboto', 18px, 400, 21px, null);
+        @include media(460px) {
+            padding-left: 20px;
+        }
     }
 
 
@@ -2358,8 +2414,15 @@ button {
         flex-direction: column;
         flex: 0 1 530px;
         width: 100%;
+        max-height: 665px;
         padding: 25px 30px;
         border: 1px solid #000;
+        @include media(670px) {
+            max-height: initial;
+        }
+        @include media(460px) {
+            padding: 25px 15px;
+        }
     }
 
     &__right-row {
@@ -2531,6 +2594,13 @@ button {
             outline: none;
             @include font('Roboto', 12px, 400, 14px, null);
         }
+        @include media(670px) {
+            position: static;
+            flex-direction: column;
+            height: auto;
+            margin-bottom: 40px;
+            align-items: center;
+        }
     }
 
     &__card-up {
@@ -2543,6 +2613,18 @@ button {
         min-width: 360px;
         background-color: #BCBCBC;
         border-radius: 5px;
+        @include media(670px) {
+            position: static;
+            margin-bottom: 25px;
+            max-height: 210px;
+            max-width: 360px;
+        }
+        @include media(420px) {
+            min-width: 330px;
+        }
+        @include media(375px) {
+            min-width: 290px;
+        }
     }
 
     &__card-block {
@@ -2712,10 +2794,6 @@ button {
             max-width: 100%;
         }
     }
-
-    &__card-down {
-    }
-
     &__card-title-name {
         margin-bottom: 5px;
         @include font('Roboto', 12px, 400, 14px, null);
@@ -2734,6 +2812,17 @@ button {
         max-width: 360px;
         background-color: #939393;
         border-radius: 5px 5px 5px 5px;
+        @include media(670px) {
+            position: static;
+            top: 0;
+            left: 0;
+        }
+        @include media(420px) {
+            max-width: 330px;
+        }
+        @include media(375px) {
+            max-width: 290px;
+        }
     }
 
     &__card-top {
@@ -2741,12 +2830,24 @@ button {
         height: 25px;
         background-color: #939393;
         border-radius: 5px;
+        @include media(420px) {
+            max-width: 330px;
+        }
+        @include media(375px) {
+            max-width: 290px;
+        }
     }
 
     &__card-middle {
         width: 360px;
         height: 45px;
         background-color: #161615;
+        @include media(420px) {
+            max-width: 330px;
+        }
+        @include media(375px) {
+            max-width: 290px;
+        }
     }
 
     &__card-bottom {
@@ -2754,6 +2855,7 @@ button {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        
     }
 
     &__card-title {

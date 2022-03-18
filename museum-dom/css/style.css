@@ -3281,6 +3281,17 @@ button {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   left: -300%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 90vh;
   opacity: 0;
   visibility: hidden;
   z-index: 4;
@@ -3289,18 +3300,66 @@ button {
 }
 
 .booking__content {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  padding: 10vh 2vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-height: 90vh;
+  width: 95%;
+  background-color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .booking__content {
+    padding: 6vh 3vh;
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking__content {
+    padding: 6vh 6vh;
+    width: 98%;
+  }
+}
+
+@media (max-width: 550px) {
+  .booking__content {
+    padding: 4vh 2vh;
+  }
 }
 
 .booking__close {
   position: absolute;
   top: 35px;
-  right: 30px;
+  right: 55px;
   width: 35px;
   height: 35px;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .booking__close {
+    top: 25px;
+    right: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking__close {
+    top: 15px;
+    right: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .booking__close {
+    top: 15px;
+    right: 20px;
+  }
 }
 
 .booking__close::before {
@@ -3328,25 +3387,36 @@ button {
 }
 
 .booking__container {
-  margin: 0 auto;
-  padding: 90px 0;
-  width: 1440px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 970px;
+          flex: 0 1 970px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #fff;
 }
 
-.booking__row {
+@media (max-width: 1024px) {
+  .booking__container {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 530px;
+            flex: 0 1 530px;
+  }
+}
+
+@media (max-width: 500px) {
+  .booking__container {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 400px;
+            flex: 0 1 400px;
+  }
+}
+
+.booking form {
   width: 100%;
-  max-width: 970px;
-}
-
-.booking__row form {
-  max-width: 970px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3355,10 +3425,26 @@ button {
           justify-content: space-between;
 }
 
+@media (max-width: 1024px) {
+  .booking form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 375px) {
+  .booking form {
+    max-width: 320px;
+  }
+}
+
 .booking__left {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 400px;
           flex: 0 1 400px;
+  max-height: 665px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3366,6 +3452,12 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .booking__left {
+    margin-bottom: 50px;
+  }
 }
 
 .booking__icon {
@@ -3406,6 +3498,16 @@ button {
   top: 100px;
 }
 
+@media (max-width: 460px) {
+  .booking__title {
+    font-family: "Forum";
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: 0;
+  }
+}
+
 .booking__subtitle {
   margin-bottom: 73px;
   font-family: "Roboto";
@@ -3413,6 +3515,18 @@ button {
   font-weight: 400;
   line-height: 21px;
   color: #710707;
+}
+
+@media (max-width: 768px) {
+  .booking__subtitle {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 460px) {
+  .booking__subtitle {
+    margin-bottom: 70px;
+  }
 }
 
 .booking__date-row {
@@ -3437,6 +3551,12 @@ button {
   line-height: 21px;
 }
 
+@media (max-width: 460px) {
+  .booking__date {
+    padding-left: 20px;
+  }
+}
+
 .booking__time {
   padding-left: 43px;
   height: 45px;
@@ -3449,6 +3569,12 @@ button {
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
+}
+
+@media (max-width: 460px) {
+  .booking__time {
+    padding-left: 20px;
+  }
 }
 
 .booking__name-label::after {
@@ -3689,8 +3815,21 @@ button {
       -ms-flex: 0 1 530px;
           flex: 0 1 530px;
   width: 100%;
+  max-height: 665px;
   padding: 25px 30px;
   border: 1px solid #000;
+}
+
+@media (max-width: 670px) {
+  .booking__right {
+    max-height: initial;
+  }
+}
+
+@media (max-width: 460px) {
+  .booking__right {
+    padding: 25px 15px;
+  }
 }
 
 .booking__right-row {
@@ -3976,6 +4115,21 @@ button {
   line-height: 14px;
 }
 
+@media (max-width: 670px) {
+  .booking__card-container {
+    position: static;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto;
+    margin-bottom: 40px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .booking__card-up {
   position: absolute;
   z-index: 2;
@@ -3988,6 +4142,27 @@ button {
   min-width: 360px;
   background-color: #BCBCBC;
   border-radius: 5px;
+}
+
+@media (max-width: 670px) {
+  .booking__card-up {
+    position: static;
+    margin-bottom: 25px;
+    max-height: 210px;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 420px) {
+  .booking__card-up {
+    min-width: 330px;
+  }
+}
+
+@media (max-width: 375px) {
+  .booking__card-up {
+    min-width: 290px;
+  }
 }
 
 .booking__card-row {
@@ -4280,6 +4455,26 @@ button {
   border-radius: 5px 5px 5px 5px;
 }
 
+@media (max-width: 670px) {
+  .booking__card-down {
+    position: static;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .booking__card-down {
+    max-width: 330px;
+  }
+}
+
+@media (max-width: 375px) {
+  .booking__card-down {
+    max-width: 290px;
+  }
+}
+
 .booking__card-top {
   width: 360px;
   height: 25px;
@@ -4287,10 +4482,34 @@ button {
   border-radius: 5px;
 }
 
+@media (max-width: 420px) {
+  .booking__card-top {
+    max-width: 330px;
+  }
+}
+
+@media (max-width: 375px) {
+  .booking__card-top {
+    max-width: 290px;
+  }
+}
+
 .booking__card-middle {
   width: 360px;
   height: 45px;
   background-color: #161615;
+}
+
+@media (max-width: 420px) {
+  .booking__card-middle {
+    max-width: 330px;
+  }
+}
+
+@media (max-width: 375px) {
+  .booking__card-middle {
+    max-width: 290px;
+  }
 }
 
 .booking__card-bottom {

@@ -22,7 +22,8 @@ burger.addEventListener('click', () => {
   headerNavigation.classList.toggle('visible');
   welcomeBody.classList.toggle('--hidden-item');
   burger.classList.toggle('opened-burger');
-  burgerImages.classList.toggle('hidden');  
+  burgerImages.classList.toggle('hidden');
+  document.body.classList.toggle('overflow-hidden');
 })
 
 
@@ -41,7 +42,10 @@ welcomeLinks.forEach((link, i) => {
     e.preventDefault()
     scroll(anchors[i])
     headerNavigation.classList.toggle('visible');
-    welcomeBody.classList.toggle('--hidden-item');
+    if (document.documentElement.clientWidth < 1025) {
+      document.body.classList.toggle('overflow-hidden');
+      welcomeBody.classList.toggle('--hidden-item');
+    }
     burger.classList.toggle('opened-burger');
     burgerImages.classList.toggle('hidden');
   })
@@ -668,5 +672,5 @@ function phoneValidation(phone) {
 }
 
 // Check for form validation
-emailInput.addEventListener('change', () => emailValidator(emailInput.value))
-phoneInput.addEventListener('change', () => phoneValidation(phoneInput.value))
+emailInput.addEventListener('input', () => emailValidator(emailInput.value))
+phoneInput.addEventListener('input', () => phoneValidation(phoneInput.value))

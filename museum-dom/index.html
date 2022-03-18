@@ -341,170 +341,168 @@
             <div class="booking">
                 <div class="booking__content">
                     <div class="booking__container">
-                        <div class="booking__row">
-                            <form action="1" lang="en">
-                                <div class="booking__left">
-                                    <div class="booking__icon"></div>
-                                    <h3 class="booking__title --title --red-line">Booking tickets</h3>
-                                    <div class="booking__subtitle">Tour to Louvre</div>
-                                    <div class="error-block hidden">You can only select a future date and time</div>
-                                    <div class="booking__date-row">
-                                        <input class="booking__date" type="date" required>
-                                        <input class="booking__time" type="time" list="timelist" required>
-                                        <datalist class="booking__timelist" id="timelist">
-                                            <option value="09:00">09:00</option>
-                                            <option value="09:30">09:30</option>
-                                            <option value="10:00">10:00</option>
-                                            <option value="10:30">10:30</option>
-                                            <option value="11:00">11:00</option>
-                                            <option value="11:30">11:30</option>
-                                            <option value="12:00">12:00</option>
-                                            <option value="12:30">12:30</option>
-                                            <option value="13:00">13:00</option>
-                                            <option value="13:30">13:30</option>
-                                            <option value="14:00">14:00</option>
-                                            <option value="14:30">14:30</option>
-                                            <option value="15:00">15:00</option>
-                                            <option value="15:30">15:30</option>
-                                            <option value="16:00">16:00</option>
-                                            <option value="16:30">16:30</option>
-                                            <option value="17:00">17:00</option>
-                                            <option value="17:30">17:30</option>
-                                            <option value="18:00">18:00</option>
-                                        </datalist>
-                                    </div>
-                                    <div class="booking__name --input-block">
-                                        <label for="booking__name-input" class="booking__name-label --input-label"></label>
-                                        <input type="text" class="booking__name-input --input" id="booking__name-input" placeholder="Name" required minlength="3" maxlength="15">
-                                    </div>
-                                    <div class="booking__mail --input-block">
-                                        <label for="booking__mail-input" class="booking__mail-label --input-label"></label>
-                                        <input type="email" class="booking__mail-input --input" id="booking__mail-input" placeholder="Email" required minlength="4" maxlength="15">
-                                    </div>
-                                    <div class="booking__phone --input-block">
-                                        <label for="booking__phone-input" class="booking__phone-label --input-label"></label>
-                                        <input type="tel" class="booking__phone-input --input" id="booking__phone-input" placeholder="Phone number" required minlength="10" maxlength="15">
-                                    </div>
-                                    <div class="booking__select-block">
-                                        <label class="booking__select-label" for="booking__ticket-type"></label>
-                                        <select class="booking__select" name="Ticket type" id="booking__ticket-type">
-                                            <option value="20">Permanent exhibition</option>
-                                            <option value="25">Temporary exhibition</option>
-                                            <option value="40">Combined Admission</option>
-                                        </select>
-                                    </div>
-                                    <div class="booking__entry-ticket">
-                                        <div class="booking__entry-ticket-title red-line">Entry ticket</div>
-                                        <div class="booking__entry-red-line --red-line"></div>
-                                        <div class="booking__entry-basic">
-                                            <p>Basic 18+ (<span>20</span> €)</p>
-                                            <div class="booking__ticket-counter basic">
-                                                <button class="booking__basic-minus down">-</button>
-                                                <input class="booking__basic-amount" type="text" value="0" readonly="readonly">
-                                                <button class="booking__basic-plus up">+</button>
-                                            </div>
+                        <form action="1" lang="en">
+                            <div class="booking__left">
+                                <div class="booking__icon"></div>
+                                <h3 class="booking__title --title --red-line">Booking tickets</h3>
+                                <div class="booking__subtitle">Tour to Louvre</div>
+                                <div class="error-block hidden">You can only select a future date and time</div>
+                                <div class="booking__date-row">
+                                    <input class="booking__date" type="date" required>
+                                    <input class="booking__time" type="time" list="timelist" required>
+                                    <datalist class="booking__timelist" id="timelist">
+                                        <option value="09:00">09:00</option>
+                                        <option value="09:30">09:30</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="10:30">10:30</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="11:30">11:30</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="12:30">12:30</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="13:30">13:30</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="14:30">14:30</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="15:30">15:30</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="16:30">16:30</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="17:30">17:30</option>
+                                        <option value="18:00">18:00</option>
+                                    </datalist>
+                                </div>
+                                <div class="booking__name --input-block">
+                                    <label for="booking__name-input" class="booking__name-label --input-label"></label>
+                                    <input type="text" class="booking__name-input --input" id="booking__name-input" placeholder="Name" required minlength="3" maxlength="15">
+                                </div>
+                                <div class="booking__mail --input-block">
+                                    <label for="booking__mail-input" class="booking__mail-label --input-label"></label>
+                                    <input type="email" class="booking__mail-input --input" id="booking__mail-input" placeholder="Email" required minlength="4" maxlength="15">
+                                </div>
+                                <div class="booking__phone --input-block">
+                                    <label for="booking__phone-input" class="booking__phone-label --input-label"></label>
+                                    <input type="tel" class="booking__phone-input --input" id="booking__phone-input" placeholder="Phone number" required minlength="10" maxlength="15">
+                                </div>
+                                <div class="booking__select-block">
+                                    <label class="booking__select-label" for="booking__ticket-type"></label>
+                                    <select class="booking__select" name="Ticket type" id="booking__ticket-type">
+                                        <option value="20">Permanent exhibition</option>
+                                        <option value="25">Temporary exhibition</option>
+                                        <option value="40">Combined Admission</option>
+                                    </select>
+                                </div>
+                                <div class="booking__entry-ticket">
+                                    <div class="booking__entry-ticket-title red-line">Entry ticket</div>
+                                    <div class="booking__entry-red-line --red-line"></div>
+                                    <div class="booking__entry-basic">
+                                        <p>Basic 18+ (<span>20</span> €)</p>
+                                        <div class="booking__ticket-counter basic">
+                                            <button class="booking__basic-minus down">-</button>
+                                            <input class="booking__basic-amount" type="text" value="0" readonly="readonly">
+                                            <button class="booking__basic-plus up">+</button>
                                         </div>
-                                        <div class="booking__entry-senior">
-                                            <p>Senior 65+ (<span>10</span> €)</p>
-                                            <div class="booking__ticket-counter senior">
-                                                <button class="booking__senior-minus down">-</button>
-                                                <input class="booking__senior-amount" type="text" value="0" readonly="readonly">
-                                                <button class="booking__senior-plus up">+</button>
-                                            </div>
+                                    </div>
+                                    <div class="booking__entry-senior">
+                                        <p>Senior 65+ (<span>10</span> €)</p>
+                                        <div class="booking__ticket-counter senior">
+                                            <button class="booking__senior-minus down">-</button>
+                                            <input class="booking__senior-amount" type="text" value="0" readonly="readonly">
+                                            <button class="booking__senior-plus up">+</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="booking__right">
-                                    <div class="booking__right-row">
-                                        <div class="booking__right-row-body">
-                                            <div class="booking__right-title">Overview</div>
-                                            <div class="booking__right-subtitle">Tour to Louvre</div>
-                                            <div class="booking__right-date">
-                                                <div class="booking__right-date-icon"></div>
-                                                <div class="booking__right-date-text">---</div>
-                                            </div>
-                                            <div class="booking__right-time">
-                                                <div class="booking__right-time-icon"></div>
-                                                <div class="booking__right-time-text">-- : --</div>
-                                            </div>
-                                            <div class="booking__right-status">
-                                                <div class="booking__right-status-icon"></div>
-                                                <div class="booking__right-status-text">Temporary exhibition</div>
-                                            </div>
+                            </div>
+                            <div class="booking__right">
+                                <div class="booking__right-row">
+                                    <div class="booking__right-row-body">
+                                        <div class="booking__right-title">Overview</div>
+                                        <div class="booking__right-subtitle">Tour to Louvre</div>
+                                        <div class="booking__right-date">
+                                            <div class="booking__right-date-icon"></div>
+                                            <div class="booking__right-date-text">---</div>
                                         </div>
-                                        <div class="booking__right-row-img">
-                                            <img src="./assets/img/booking/title-img.jpg" alt="">
+                                        <div class="booking__right-time">
+                                            <div class="booking__right-time-icon"></div>
+                                            <div class="booking__right-time-text">-- : --</div>
+                                        </div>
+                                        <div class="booking__right-status">
+                                            <div class="booking__right-status-icon"></div>
+                                            <div class="booking__right-status-text">Temporary exhibition</div>
                                         </div>
                                     </div>
-                                    <div class="booking__right-price">
-                                        <div class="booking__right-basic-price">
-                                            <div class="booking__right-basic-amount">2</div>
-                                            <div class="booking__right-basic-text">Basic (20 €)</div>
-                                            <div class="booking__right-basic-price"><span></span> €</div>
-                                        </div>
-                                        <div class="booking__right-senior-price">
-                                            <div class="booking__right-senior-amount">3</div>
-                                            <div class="booking__right-senior-text">Senior (10 €)</div>
-                                            <div class="booking__right-senior-price"><span></span> €</div>
-                                        </div>
-                                        <div class="booking__right-line --red-line"></div>
-                                        <div class="booking__right-total">
-                                            <div class="booking__right-total-text">Total:</div>
-                                            <div class="booking__right-total-price"><span>60</span> €</div>
-                                        </div>
+                                    <div class="booking__right-row-img">
+                                        <img src="./assets/img/booking/title-img.jpg" alt="">
                                     </div>
-                                    <div class="booking__card-container">
-                                        <div class="booking__card-up">
-                                            <div class="booking__card-block">
-                                                <div class="booking__card-row">
-                                                    <div class="booking__card-body">
-                                                        <h5 class="booking__card-title">Card number</h5>
-                                                        <input type="text" class="booking__card-number" required minlength="16" maxlength="16">
-                                                        <h5 class="booking__card-subtitle">Expiration date</h5>
-                                                        <div class="booking__card-row-number">
-                                                            <div class="booking__card-month-block">
-                                                                <input class="booking__card-month" type="text" required minlength="1" maxlength="2">
-                                                                <div class="booking__card-month-control">
-                                                                    <div class="booking__card-month-plus"></div>
-                                                                    <div class="booking__card-month-minus"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="booking__card-year-block">
-                                                                <input class="booking__card-year" type="text" required minlength="4" maxlength="4">
-                                                                <div class="booking__card-year-control">
-                                                                    <div class="booking__card-year-plus"></div>
-                                                                    <div class="booking__card-year-minus"></div>
-                                                                </div>
+                                </div>
+                                <div class="booking__right-price">
+                                    <div class="booking__right-basic-price">
+                                        <div class="booking__right-basic-amount">2</div>
+                                        <div class="booking__right-basic-text">Basic (20 €)</div>
+                                        <div class="booking__right-basic-price"><span></span> €</div>
+                                    </div>
+                                    <div class="booking__right-senior-price">
+                                        <div class="booking__right-senior-amount">3</div>
+                                        <div class="booking__right-senior-text">Senior (10 €)</div>
+                                        <div class="booking__right-senior-price"><span></span> €</div>
+                                    </div>
+                                    <div class="booking__right-line --red-line"></div>
+                                    <div class="booking__right-total">
+                                        <div class="booking__right-total-text">Total:</div>
+                                        <div class="booking__right-total-price"><span>60</span> €</div>
+                                    </div>
+                                </div>
+                                <div class="booking__card-container">
+                                    <div class="booking__card-up">
+                                        <div class="booking__card-block">
+                                            <div class="booking__card-row">
+                                                <div class="booking__card-body">
+                                                    <h5 class="booking__card-title">Card number</h5>
+                                                    <input type="text" class="booking__card-number" required minlength="16" maxlength="16">
+                                                    <h5 class="booking__card-subtitle">Expiration date</h5>
+                                                    <div class="booking__card-row-number">
+                                                        <div class="booking__card-month-block">
+                                                            <input class="booking__card-month" type="text" required minlength="1" maxlength="2">
+                                                            <div class="booking__card-month-control">
+                                                                <div class="booking__card-month-plus"></div>
+                                                                <div class="booking__card-month-minus"></div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="booking__card-logo">
-                                                        <div class="booking__card-visa">
-                                                            <img src="./assets/icons/Visa.png" alt="">
-                                                        </div>
-                                                        <div class="booking__card-master">
-                                                            <img src="./assets/icons/Mastercard.png" alt="">
+                                                        <div class="booking__card-year-block">
+                                                            <input class="booking__card-year" type="text" required minlength="4" maxlength="4">
+                                                            <div class="booking__card-year-control">
+                                                                <div class="booking__card-year-plus"></div>
+                                                                <div class="booking__card-year-minus"></div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="booking__card-title-name">Cardholder name</div>
-                                                <input class="booking__card-name" type="text">
+                                                <div class="booking__card-logo">
+                                                    <div class="booking__card-visa">
+                                                        <img src="./assets/icons/Visa.png" alt="">
+                                                    </div>
+                                                    <div class="booking__card-master">
+                                                        <img src="./assets/icons/Mastercard.png" alt="">
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="booking__card-down">
-                                            <div class="booking__card-top"></div>
-                                            <div class="booking__card-middle"></div>
-                                            <div class="booking__card-bottom">
-                                                <div class="booking__card-title">CVC/CVV</div>
-                                                <input class="booking__card-cvv" type="text" required minlength="3" maxlength="3">
-                                                <div class="booking__card-text">The last<br>3 or 4 digits<br>on back<br>of the card</div>
-                                            </div>
+                                            <div class="booking__card-title-name">Cardholder name</div>
+                                            <input class="booking__card-name" type="text">
                                         </div>
                                     </div>
-                                    <button class="booking__book-btn">Book</button>
+                                    <div class="booking__card-down">
+                                        <div class="booking__card-top"></div>
+                                        <div class="booking__card-middle"></div>
+                                        <div class="booking__card-bottom">
+                                            <div class="booking__card-title">CVC/CVV</div>
+                                            <input class="booking__card-cvv" type="text" required minlength="3" maxlength="3">
+                                            <div class="booking__card-text">The last<br>3 or 4 digits<br>on back<br>of the card</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
+                                <button class="booking__book-btn">Book</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="booking__close"></div>
                 </div>
