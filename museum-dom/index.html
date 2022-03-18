@@ -347,10 +347,10 @@
                                     <div class="booking__icon"></div>
                                     <h3 class="booking__title --title --red-line">Booking tickets</h3>
                                     <div class="booking__subtitle">Tour to Louvre</div>
-                                    <div class="error-block hidden">You can only select a future date</div>
+                                    <div class="error-block hidden">You can only select a future date and time</div>
                                     <div class="booking__date-row">
-                                        <input class="booking__date" type="date">
-                                        <input class="booking__time" type="time" list="timelist">
+                                        <input class="booking__date" type="date" required>
+                                        <input class="booking__time" type="time" list="timelist" required>
                                         <datalist class="booking__timelist" id="timelist">
                                             <option value="09:00">09:00</option>
                                             <option value="09:30">09:30</option>
@@ -375,15 +375,15 @@
                                     </div>
                                     <div class="booking__name --input-block">
                                         <label for="booking__name-input" class="booking__name-label --input-label"></label>
-                                        <input type="text" class="booking__name-input --input" id="booking__name-input" placeholder="Name">
+                                        <input type="text" class="booking__name-input --input" id="booking__name-input" placeholder="Name" required minlength="3" maxlength="15">
                                     </div>
                                     <div class="booking__mail --input-block">
                                         <label for="booking__mail-input" class="booking__mail-label --input-label"></label>
-                                        <input type="email" class="booking__mail-input --input" id="booking__mail-input" placeholder="Email">
+                                        <input type="email" class="booking__mail-input --input" id="booking__mail-input" placeholder="Email" required minlength="4" maxlength="15">
                                     </div>
                                     <div class="booking__phone --input-block">
                                         <label for="booking__phone-input" class="booking__phone-label --input-label"></label>
-                                        <input type="tel" class="booking__phone-input --input" id="booking__phone-input" placeholder="Phone number">
+                                        <input type="tel" class="booking__phone-input --input" id="booking__phone-input" placeholder="Phone number" required minlength="10" maxlength="15">
                                     </div>
                                     <div class="booking__select-block">
                                         <label class="booking__select-label" for="booking__ticket-type"></label>

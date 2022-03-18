@@ -414,7 +414,8 @@ const radios = document.querySelectorAll('.tickets__type input[type="radio"]'),
       bookingDateOut = document.querySelector('.booking__right-date-text'),
       bookingTimeOut = document.querySelector('.booking__right-time-text'),
       bookingErrorBlock = document.querySelector('.error-block'),
-      bookingTimelist = document.querySelector('.booking__timelist');
+      bookingTimelist = document.querySelector('.booking__timelist'),
+      bookingForm = document.querySelector('.booking__row > form');
 
 // Set date & time on ticket
 
@@ -426,16 +427,14 @@ function setStringDate(inputTarget, outTarget) {
   let month = months[date.getMonth()];
   let day = daysOfTheWeek[date.getDay()];
   let dateNum = date.getDate();
-  if (inputTarget.valueAsNumber < (Date.now() - (86400 * 1000))) {
-  // if (inputTarget.valueAsNumber < Date.now() && selectedTimestamp < Date.now()) {
-    console.log(selectedTimestamp < Date.now());
+  if (inputTarget.valueAsNumber < Date.now()) {
     bookingErrorBlock.classList.remove('hidden');
     bookingErrorBlock.classList.add('visible-booking-error');
-    bookingDate.classList.add('red-color');
+    bookingDate.classList.add('red-border');
   } else {
     bookingErrorBlock.classList.remove('visible-booking-error');
     bookingErrorBlock.classList.add('hidden');
-    bookingDate.classList.remove('red-color');
+    bookingDate.classList.remove('red-border');
     let outDate = `${day}, ${month} ${dateNum}`;
     outTarget.textContent = outDate;
     if(bookingDate.value) {
@@ -458,14 +457,12 @@ function setTimeValidation() {
   if(selectedTimestamp < Date.now()) {
     bookingErrorBlock.classList.remove('hidden');
     bookingErrorBlock.classList.add('visible-booking-error');
-    bookingDate.classList.add('red-color');
+    bookingDate.classList.add('red-border');
   } else {
     bookingErrorBlock.classList.remove('visible-booking-error');
     bookingErrorBlock.classList.add('hidden');
-    bookingDate.classList.remove('red-color');
+    bookingDate.classList.remove('red-border');
   }
-  console.log(selectedTimestamp);
-  console.log(Date.now());
 }
 
 // Fill the text woth Date & time
@@ -600,7 +597,11 @@ ticketTypePopUpSelect.addEventListener('change', () => {
 const buyBtn = document.querySelector('.tickets__buy-now'),
       booking = document.querySelector('.booking'),
       overlay = document.querySelector('.overlay'),
-      closeBooking = document.querySelector('.booking__close');
+      closeBooking = document.querySelector('.booking__close'),
+      emailInput = document.querySelector('.booking__mail-input'),
+      phoneInput = document.querySelector('.booking__phone-input'),
+      phoneInputBlock = document.querySelector('.booking__phone'),
+      mailInputBlock = document.querySelector('.booking__mail');
 
 buyBtn.addEventListener('click', () => {
   booking.classList.toggle('visible-booking')
@@ -628,3 +629,44 @@ closeBooking.addEventListener('click', () => {
   removeClass(overlay, 'visible')
 })
 
+//Inputs validation
+
+function inputErrorHighlight(inputTarget, inputTextTarget) {
+  inputTarget.classList.add('red-border');
+  inputTextTarget.classList.add('red-text');
+}
+function inputRemoveErrorHighlight(inputTarget, inputTextTarget) {
+  inputTarget.classList.remove('red-border');
+  inputTextTarget.classList.remove('red-text');
+}
+
+function emailValidator(email) {
+  if (mailInputBlock.classList.contains('red-border')) {
+    inputRemoveErrorHighlight(mailInputBlock, emailInput);
+  }
+
+  let userName = email.search('@') ? email.split('@')[0] : inputErrorHighlight(mailInputBlock, emailInput);
+  userName = userName.length < 16 ? userName : inputErrorHighlight(mailInputBlock, emailInput);
+  userName = userName.length > 2 ? userName : inputErrorHighlight(mailInputBlock, emailInput);
+
+  if (!/[\S\w-]/.test(userName)) {
+    inputErrorHighlight(mailInputBlock, emailInput)
+  }
+ 
+  let domain = email.split('@')[1];
+  domain = domain.split('.')[0];
+  domain = domain.length > 3 ? domain : inputErrorHighlight(mailInputBlock, emailInput);
+  if (!/\w/.test(domain)) inputErrorHighlight(mailInputBlock, emailInput);
+}
+
+function phoneValidation(phone) {
+  if (!/^\+?\d{0,2}[-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/.test(phone)) {
+    inputErrorHighlight(phoneInputBlock, phoneInput)
+  } else if(phoneInputBlock.classList.contains('red-border')) {
+    inputRemoveErrorHighlight(phoneInputBlock, phoneInput)
+  }
+}
+
+// Check for form validation
+emailInput.addEventListener('change', () => emailValidator(emailInput.value))
+phoneInput.addEventListener('change', () => phoneValidation(phoneInput.value))
