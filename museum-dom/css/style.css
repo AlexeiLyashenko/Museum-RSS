@@ -2147,7 +2147,7 @@ button {
 
 @media (max-width: 420px) {
   .video__play-btn-container::before {
-    top: -5px;
+    top: -20px;
     left: 8px;
     width: 50px;
     height: 50px;
@@ -2205,7 +2205,7 @@ button {
 
 @media (max-width: 420px) {
   .video__play-btn-container::after {
-    top: 6px;
+    top: -8px;
     left: 25px;
     width: 21px;
     height: 28px;
@@ -3275,6 +3275,37 @@ button {
   color: red;
 }
 
+@media (max-width: 1024px) {
+  .error-block {
+    top: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .error-block {
+    top: 205px;
+  }
+}
+
+@media (max-width: 550px) {
+  .error-block {
+    top: 185px;
+  }
+}
+
+@media (max-width: 460px) {
+  .error-block {
+    top: 195px;
+  }
+}
+
+@media (max-width: 460px) {
+  .error-block {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
 .booking {
   position: fixed;
   top: 50%;
@@ -3300,6 +3331,7 @@ button {
 }
 
 .booking__content {
+  position: relative;
   padding: 10vh 2vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3308,6 +3340,7 @@ button {
       -ms-flex-pack: center;
           justify-content: center;
   max-height: 90vh;
+  max-width: 1440px;
   width: 95%;
   background-color: #fff;
 }
@@ -3334,8 +3367,8 @@ button {
 
 .booking__close {
   position: absolute;
-  top: 35px;
-  right: 55px;
+  top: 30px;
+  right: 25px;
   width: 35px;
   height: 35px;
   cursor: pointer;
@@ -3344,21 +3377,14 @@ button {
 @media (max-width: 1024px) {
   .booking__close {
     top: 25px;
-    right: 45px;
-  }
-}
-
-@media (max-width: 768px) {
-  .booking__close {
-    top: 15px;
-    right: 25px;
+    right: 20px;
   }
 }
 
 @media (max-width: 500px) {
   .booking__close {
-    top: 15px;
-    right: 20px;
+    top: 20px;
+    right: 15px;
   }
 }
 

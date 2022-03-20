@@ -1361,7 +1361,7 @@ button {
                 border: 3px solid #ffffff;
             }
             @include media(420px) {
-                top: -5px;
+                top: -20px;
                 left: 8px;
                 width: 50px;
                 height: 50px;
@@ -1393,7 +1393,7 @@ button {
                 mask-size: 33px;
             }
             @include media(420px) {
-                top: 6px;
+                top: -8px;
                 left: 25px;
                 width: 21px;
                 height: 28px;
@@ -2084,6 +2084,22 @@ button {
     transition: .2s ease-in-out;
     @include font('Roboto', 18px, 400, 24px, null);
     color: red;
+    @include media(1024px) {
+        top: 230px;
+    }
+    @include media(768px) {
+        top: 205px;
+    }
+    @include media(550px) {
+        top: 185px;
+    }
+    @include media(460px) {
+        top: 195px;
+    }
+    @include media(460px) {
+        font-size: 16px;
+        line-height: 22px;
+    }
 }
 
 .booking {
@@ -2101,10 +2117,12 @@ button {
     z-index: 4;
     transition: .3s ease-in-out;
     &__content {
+        position: relative;
         padding: 10vh 2vh;
         display: flex;
         justify-content: center;
         max-height: 90vh;
+        max-width: 1440px;
         width: 95%;
         background-color: #fff;
         @include media(1024px) {
@@ -2122,22 +2140,18 @@ button {
 
     &__close {
         position: absolute;
-        top: 35px;
-        right: 55px;
+        top: 30px;
+        right: 25px;
         width: 35px;
         height: 35px;
         cursor: pointer;
         @include media(1024px) {
             top: 25px;
-            right: 45px;
-        }
-        @include media(768px) {
-            top: 15px;
-            right: 25px;
+            right: 20px;
         }
         @include media(500px) {
-            top: 15px;
-            right: 20px;
+            top: 20px;
+            right: 15px;
         }
         &::before {
             content: '';
