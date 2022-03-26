@@ -4217,6 +4217,16 @@ button {
   width: 100%;
 }
 
+.booking__card-number::-webkit-outer-spin-button, .booking__card-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.booking__card-number, .booking__card-number:hover, .booking__card-number:focus {
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: textfield;
+}
+
 .booking__card-subtitle {
   margin: 0 0 5px 0;
   font-family: "Roboto";
@@ -4270,7 +4280,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 20px;
+  width: 21px;
   height: 17px;
   cursor: pointer;
 }
@@ -4306,7 +4316,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 20px;
+  width: 21px;
   height: 17px;
   cursor: pointer;
 }
@@ -4370,7 +4380,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 20px;
+  width: 21px;
   height: 17px;
   cursor: pointer;
 }
@@ -4406,7 +4416,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 20px;
+  width: 21px;
   height: 17px;
   cursor: pointer;
 }

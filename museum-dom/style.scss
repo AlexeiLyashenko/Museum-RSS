@@ -2661,6 +2661,17 @@ button {
     &__card-number {
         margin-bottom: 10px;
         width: 100%;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        &,
+        &:hover,
+        &:focus {
+            appearance: none;
+            -moz-appearance: textfield;
+        }
     }
 
     &__card-subtitle {
@@ -2698,7 +2709,7 @@ button {
     &__card-month-plus {
         position: relative;
         display: flex;
-        width: 20px;
+        width: 21px;
         height: 17px;
         cursor: pointer;
         &::after {
@@ -2717,7 +2728,7 @@ button {
     &__card-month-minus {
         position: relative;
         display: flex;
-        width: 20px;
+        width: 21px;
         height: 17px;
         cursor: pointer;
         &::after {
@@ -2755,7 +2766,7 @@ button {
     &__card-year-plus {
         position: relative;
         display: flex;
-        width: 20px;
+        width: 21px;
         height: 17px;
         cursor: pointer;
         &::after {
@@ -2774,7 +2785,7 @@ button {
     &__card-year-minus {
         position: relative;
         display: flex;
-        width: 20px;
+        width: 21px;
         height: 17px;
         cursor: pointer;
         &::after {

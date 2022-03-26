@@ -316,7 +316,6 @@ function doubleClick(event) {
     toggleVideoInfo(videoInfo, `${mainPlayer.playbackRate}x`)
   } else if (event.shiftKey && event.code == 'Comma') {
     mainPlayer.playbackRate -= 0.25;
-    console.log(mainPlayer.playbackRate);
     toggleVideoInfo(videoInfo, `${mainPlayer.playbackRate}x`)
   }
 }
@@ -672,5 +671,28 @@ function phoneValidation(phone) {
 }
 
 // Check for form validation
-emailInput.addEventListener('input', () => emailValidator(emailInput.value))
-phoneInput.addEventListener('input', () => phoneValidation(phoneInput.value))
+emailInput.addEventListener('input', () => emailValidator(emailInput.value));
+phoneInput.addEventListener('input', () => phoneValidation(phoneInput.value));
+
+// Card month and year arrows
+
+const arrowMonthUp = document.querySelector('.booking__card-month-plus'),
+      arrowMonthDown = document.querySelector('.booking__card-month-minus'),
+      arrowYearUp = document.querySelector('.booking__card-year-plus'),
+      arrowYearDown = document.querySelector('.booking__card-year-minus'),
+      cardMonth = document.querySelector('.booking__card-month'),
+      cardYear = document.querySelector('.booking__card-year');
+
+function plusOne(targetInput) {
+  targetInput.value = +targetInput.value + 1;
+}
+function minusOne(targetInput) {
+  if(+targetInput.value > 1) {
+    targetInput.value = +targetInput.value - 1;
+  }
+}
+
+arrowMonthUp.addEventListener('click', () => plusOne(cardMonth));
+arrowMonthDown.addEventListener('click', () => minusOne(cardMonth));
+arrowYearUp.addEventListener('click', () => plusOne(cardYear));
+arrowYearDown.addEventListener('click', () => minusOne(cardYear));
