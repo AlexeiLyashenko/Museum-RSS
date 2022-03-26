@@ -1,2 +1,1 @@
-https://rolling-scopes-school.github.io/alexeilyashenko-JSFE2021Q3/museum-dom/
-
+Project link: https://alexeilyashenko.github.io/Museum-RSS/museum-dom/
